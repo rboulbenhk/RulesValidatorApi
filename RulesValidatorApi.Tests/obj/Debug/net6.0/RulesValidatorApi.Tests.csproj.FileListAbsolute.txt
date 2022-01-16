@@ -96,3 +96,11 @@
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/obj/Debug/net6.0/ref/RulesValidatorApi.Tests.dll
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/obj/Debug/net6.0/RulesValidatorApi.Tests.pdb
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/obj/Debug/net6.0/RulesValidatorApi.Tests.genruntimeconfig.cache
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/RulesValidatorApi.deps.json
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/RulesValidatorApi.runtimeconfig.json
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/appsettings.Development.json
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/appsettings.json
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/RulesValidatorApi
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/RulesValidatorApi.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/bin/Debug/net6.0/RulesValidatorApi.pdb

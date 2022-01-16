@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace RulesValidatorApi.Controllers
 {
-    public class CsvController
+    public class CsvController : ControllerBase
     {
         
     }

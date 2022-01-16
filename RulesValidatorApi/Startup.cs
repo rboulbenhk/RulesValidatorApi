@@ -4,7 +4,7 @@ public class Startup
     {
     }
 
-    public void Configure(IApplicationBuilder app, Microsoft.Extensions.Hosting.IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, Microsoft.Extensions.Hosting.IHostEnvironment env)
     {
         if (env.IsDevelopment())
         {
