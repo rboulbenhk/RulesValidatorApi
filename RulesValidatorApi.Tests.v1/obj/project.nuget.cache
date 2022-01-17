@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PcoKrp1V+25JQsxw9hcd3I7X2XblWvXu/VdBGlena92wPls1Q7EjwDZ3KdPfa35CrBP4Dnb8Dn2GHc2IFBIxlQ==",
+  "dgSpecHash": "iHwzKv5CU9+7VZT6gRhoq6MtquGR6v4aEBO5VcYaR/HVn1hTAY+8XchhKc/y9TsVKl11qliRBNfa0d4OpMrRDw==",
   "success": true,
-  "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests/RulesValidatorApi.Tests.v1.csproj",
+  "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Tests.v1/RulesValidatorApi.Tests.v1.csproj",
   "expectedPackageFiles": [
     "/Users/romainboulben/.nuget/packages/coverlet.collector/3.1.0/coverlet.collector.3.1.0.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.codecoverage/16.11.0/microsoft.codecoverage.16.11.0.nupkg.sha512",

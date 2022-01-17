@@ -24,7 +24,7 @@ namespace RulesValidatorApi.Controllers
             catch(Exception ex)
             {
                 _logger.LogCritical($"Exception occured while validating the CSV file {csvConfiguration.FilePath} with the Configuration {(null)} : {ex}");
-                return StatusCode(500, "A problem occured while handling your request.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "A problem occured while handling your request.");
             }
         }
     }

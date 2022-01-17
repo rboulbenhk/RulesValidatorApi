@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "XMklSOWHictfW7pTPwciD9hLJ1BkyepQEcNPpxGQBhESVSj7w0XEssXZbmoYbbPwUCPjEX0rWhf0qQkn5Ah+DQ==",
+  "dgSpecHash": "qwH8wQFNwWd/demXIxTxLVpf6NjUr+RdlQhOE5602b2XlDzjyt+45U6cZ/m4gm58CSFaR45pXxF12kCnMhBGSA==",
   "success": true,
-  "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi/RulesValidatorApi.Service.v1.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj",
+  "expectedPackageFiles": [
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.configuration.abstractions/5.0.0/microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.dependencyinjection/5.0.0/microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/5.0.0/microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.logging/5.0.0/microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.logging.abstractions/5.0.0/microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/nlog/4.7.11/nlog.4.7.11.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/nlog.extensions.logging/1.7.4/nlog.extensions.logging.1.7.4.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/nlog.web.aspnetcore/4.14.0/nlog.web.aspnetcore.4.14.0.nupkg.sha512"
+  ],
   "logs": []
 }
