@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "wklVAK4uRlw5r0gIzaUR+7W8gibrDTa7aevITvD6h5c=",
+  "Source": "RulesValidatorApi.Service.v1",
+  "BasePath": "_content/RulesValidatorApi.Service.v1",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
