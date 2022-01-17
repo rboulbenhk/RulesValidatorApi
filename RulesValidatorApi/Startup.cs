@@ -2,6 +2,7 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddMvc();
     }
 
     public void Configure(IApplicationBuilder app, Microsoft.Extensions.Hosting.IHostEnvironment env)
@@ -14,5 +15,7 @@ public class Startup
         {
             app.UseExceptionHandler();
         }
+        app.UseStatusCodePages();
+        app.UseMvc();
     }
 }
