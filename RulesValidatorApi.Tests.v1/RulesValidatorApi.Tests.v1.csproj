@@ -17,6 +17,8 @@
     </PackageReference>
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0"/>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+    <PackageReference Include="NUnit" Version="3.13.2"/>
+    <PackageReference Include="FluentValidation" Version="10.3.6"/>
     <ProjectReference Include="..\RulesValidatorApi.Service.v1\RulesValidatorApi.Service.v1.csproj"/>
   </ItemGroup>
 </Project>
