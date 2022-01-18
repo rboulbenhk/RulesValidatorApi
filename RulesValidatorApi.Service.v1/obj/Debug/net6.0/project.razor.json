@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi/RulesValidatorApi.csproj",
+  "FilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "RulesValidatorApi",
+  "RootNamespace": "RulesValidatorApi.Service.v1",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

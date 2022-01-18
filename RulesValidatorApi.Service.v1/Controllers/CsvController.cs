@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using RulesValidatorApi.Models;
+using RulesValidatorApi.Models.Request;
 
 namespace RulesValidatorApi.Controllers
 {

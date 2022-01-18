@@ -16,6 +16,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0"/>
-    <ProjectReference Include="..\RulesValidatorApi\RulesValidatorApi.Service.v1.csproj"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+    <ProjectReference Include="..\RulesValidatorApi.Service.v1\RulesValidatorApi.Service.v1.csproj"/>
   </ItemGroup>
 </Project>

@@ -1,0 +1,15 @@
+{
+    "Path": "MyPath",
+    "RuleSet": [
+        {
+            "ColumnId": 1,
+            "RuleName": "MyRuleName",
+            "RuleValue": "MyRuleValue"
+        },
+        {
+            "ColumnId": 2,
+            "RuleName": "MySecondRuleName",
+            "RuleValue": "MyRuleValue"
+        }
+    ]
+}

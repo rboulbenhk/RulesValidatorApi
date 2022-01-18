@@ -46,3 +46,12 @@
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/Debug/net6.0/ref/RulesValidatorApi.Service.v1.dll
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/Debug/net6.0/RulesValidatorApi.Service.v1.pdb
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/Debug/net6.0/RulesValidatorApi.Service.v1.genruntimeconfig.cache
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/Debug/net6.0/RulesValidatorApi.Service.v1.MvcApplicationPartsAssemblyInfo.cs
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/FluentValidation.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/FluentValidation.AspNetCore.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll

@@ -1,6 +1,6 @@
 namespace RulesValidatorApi.Rules.CsvFileCellRules
 {
-    public class IsCellEmpty : IRulesValidator
+    public class IsEmpty : IRulesValidator
     {
         public string GetErrorMessage()
         {
