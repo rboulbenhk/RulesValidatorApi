@@ -1,0 +1,185 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.Tests.v1/RulesValidatorApi.Service.Tests.v1.csproj": {}
+  },
+  "projects": {
+    "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.Tests.v1/RulesValidatorApi.Service.Tests.v1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.Tests.v1/RulesValidatorApi.Service.Tests.v1.csproj",
+        "projectName": "RulesValidatorApi.Service.Tests.v1",
+        "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.Tests.v1/RulesValidatorApi.Service.Tests.v1.csproj",
+        "packagesPath": "/Users/romainboulben/.nuget/packages/",
+        "outputPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.Tests.v1/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/romainboulben/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj": {
+                "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.6, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.14.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj",
+        "projectName": "RulesValidatorApi.Service",
+        "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj",
+        "packagesPath": "/Users/romainboulben/.nuget/packages/",
+        "outputPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/romainboulben/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.6, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.3.6, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.14.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

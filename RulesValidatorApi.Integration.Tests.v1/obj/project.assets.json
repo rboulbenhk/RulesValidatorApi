@@ -1067,7 +1067,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "RulesValidatorApi.Service.v1/1.0.0": {
+      "RulesValidatorApi.Service/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -1078,10 +1078,10 @@
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "compile": {
-          "bin/placeholder/RulesValidatorApi.Service.v1.dll": {}
+          "bin/placeholder/RulesValidatorApi.Service.dll": {}
         },
         "runtime": {
-          "bin/placeholder/RulesValidatorApi.Service.v1.dll": {}
+          "bin/placeholder/RulesValidatorApi.Service.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -3089,10 +3089,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "RulesValidatorApi.Service.v1/1.0.0": {
+    "RulesValidatorApi.Service/1.0.0": {
       "type": "project",
-      "path": "../RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj",
-      "msbuildProject": "../RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj"
+      "path": "../RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj",
+      "msbuildProject": "../RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3101,7 +3101,7 @@
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "NUnit >= 3.13.2",
       "NUnit3TestAdapter >= 4.0.0",
-      "RulesValidatorApi.Service.v1 >= 1.0.0",
+      "RulesValidatorApi.Service >= 1.0.0",
       "coverlet.collector >= 3.1.0"
     ]
   },
@@ -3112,9 +3112,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Integration.Tests.v1.csproj",
-      "projectName": "RulesValidatorApi.Integration.Tests.v1",
-      "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Integration.Tests.v1.csproj",
+      "projectUniqueName": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Service.Integration.Tests.v1.csproj",
+      "projectName": "RulesValidatorApi.Service.Integration.Tests.v1",
+      "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Service.Integration.Tests.v1.csproj",
       "packagesPath": "/Users/romainboulben/.nuget/packages/",
       "outputPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/",
       "projectStyle": "PackageReference",
@@ -3134,8 +3134,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj": {
-              "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj"
+            "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj": {
+              "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj"
             }
           }
         }

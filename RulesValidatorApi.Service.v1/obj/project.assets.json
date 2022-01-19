@@ -698,9 +698,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj",
-      "projectName": "RulesValidatorApi.Service.v1",
-      "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.v1.csproj",
+      "projectUniqueName": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj",
+      "projectName": "RulesValidatorApi.Service",
+      "projectPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/RulesValidatorApi.Service.csproj",
       "packagesPath": "/Users/romainboulben/.nuget/packages/",
       "outputPath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/",
       "projectStyle": "PackageReference",

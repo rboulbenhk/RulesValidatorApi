@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HGr4s3RJMxvvwEE1xrgQGORdUTbrEsCLZ/XMn3uDbJO0bMfHZB23qpa0HfgZ8OmktCIGJGXD6VBanN3VgIV5Wg==",
+  "dgSpecHash": "rNNgsM3AJTPYs5pFt2W13wdcx2tjvApcSZKusBfL1ioyQ75DafIdFPtAjTCQKLnpBr25orgAb+NW0bFDqmw/zg==",
   "success": true,
-  "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Integration.Tests.v1.csproj",
+  "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Service.Integration.Tests.v1.csproj",
   "expectedPackageFiles": [
     "/Users/romainboulben/.nuget/packages/coverlet.collector/3.1.0/coverlet.collector.3.1.0.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/fluentvalidation/10.3.6/fluentvalidation.10.3.6.nupkg.sha512",

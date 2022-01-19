@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace RulesValidatorApi.Models.Request
+namespace RulesValidatorApi.Service.Models.Request
 {
     public class RuleSet
     {
@@ -8,9 +8,9 @@ namespace RulesValidatorApi.Models.Request
         public int ColumnId { get; set; }
 
         [JsonProperty("RuleName")]
-        public string RuleName { get; set; }
+        public string? RuleName { get; set; }
 
         [JsonProperty("RuleValue")]
-        public string RuleValue { get; set; }
+        public string? RuleValue { get; set; }
     }
 }

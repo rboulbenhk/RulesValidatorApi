@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace RulesValidatorApi.Parser
+namespace RulesValidatorApi.Service.Parser
 {
     public class CsvParser : IDisposable
     {
@@ -31,7 +31,7 @@ namespace RulesValidatorApi.Parser
                 var rowNumber = 1;
                 while(!_streamReader.EndOfStream)
                 {
-                    var line = await _streamReader.ReadLineAsync();
+                    string? line = await _streamReader.ReadLineAsync();
                     yield return new CsvRow(_header, line, ++rowNumber);
                 }
             }

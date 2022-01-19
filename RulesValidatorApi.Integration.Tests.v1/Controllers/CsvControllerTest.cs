@@ -6,7 +6,7 @@ namespace RulesValidatorApi.Integration.Tests.v1.Controllers;
 
 public class CsvControllerTest
 {
-    private HttpClient _client;
+    private HttpClient? _client;
 
     [SetUp]
     public void Setup()

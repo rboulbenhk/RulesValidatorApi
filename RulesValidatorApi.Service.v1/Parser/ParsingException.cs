@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace RulesValidatorApi.Parser
+namespace RulesValidatorApi.Service.Parser
 {
     [Serializable]
     internal class ParsingException : Exception

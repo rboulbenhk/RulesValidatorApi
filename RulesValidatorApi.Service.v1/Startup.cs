@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RulesValidatorApi.Service.v1.Options;
+using RulesValidatorApi.Service.Filters;
+using Swashbuckle.AspNetCore.Swagger;
 
 public class Startup
 {
@@ -28,7 +29,7 @@ public class Startup
         });
     }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         // if (env.IsDevelopment())
         // {
@@ -38,14 +39,14 @@ public class Startup
         // {
         //     app.UseExceptionHandler();
         // }
-        var swaggerOptions = new SwaggerOptions();
+        var swaggerOptions = new RulesValidatorApi.Service.OptionsApi.SwaggerOptions();
         Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
         
         app.UseSwagger(o => 
         {
             o.RouteTemplate = swaggerOptions.JsonRoute;
         });
-        app.UseSwaggerUI(o => o.SwaggerEndpoint(swaggerOptions.UIEndPoint,swaggerOptions.Description));
+        app.UseSwaggerUI(o => o.SwaggerEndpoint(swaggerOptions.UIEndPoint, swaggerOptions.Description));
         app.UseStatusCodePages();
         app.UseMvc();
     }

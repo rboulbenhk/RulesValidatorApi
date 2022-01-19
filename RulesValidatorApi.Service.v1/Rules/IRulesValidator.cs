@@ -1,4 +1,4 @@
-namespace RulesValidatorApi.Rules
+namespace RulesValidatorApi.Service.Rules
 {
     public interface IRulesValidator
     {
