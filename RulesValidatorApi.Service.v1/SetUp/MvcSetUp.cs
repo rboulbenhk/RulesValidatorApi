@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RulesValidatorApi.Service.Contracts.V1;
 using RulesValidatorApi.Service.Filters;
+using RulesValidatorApi.Service.v1.Services;
 
 namespace RulesValidatorApi.Service.v1.SetUp
 {
@@ -20,6 +21,8 @@ namespace RulesValidatorApi.Service.v1.SetUp
             services.AddSwaggerGen(s => {
                 s.SwaggerDoc(ApiRoutes.Version, new Microsoft.OpenApi.Models.OpenApiInfo{Title=ApiRoutes.Title, Version=ApiRoutes.Version});
             });
+
+            services.AddSingleton<IPostService,PostService>();
         }
     }
 }
