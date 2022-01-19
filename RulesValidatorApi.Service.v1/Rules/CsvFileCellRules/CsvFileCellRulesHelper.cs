@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace RulesValidatorApi.Rules.CsvFileCellRules
 {   
     public static class CsvFileCellRulesHelper

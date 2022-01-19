@@ -1,3 +1,5 @@
+using System;
+
 namespace RulesValidatorApi.Rules.CsvFile
 {
     public class IsInteger : IRulesValidator

@@ -1,3 +1,5 @@
+using System;
+
 namespace RulesValidatorApi.Rules.CsvFileCellRules
 {
     public class IsUpperCaseString : IRulesValidator
