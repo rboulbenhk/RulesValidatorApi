@@ -1,9 +1,12 @@
+using System;
+using System.Linq;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RulesValidatorApi.Service.Filters;
+using RulesValidatorApi.Service.v1.SetUp;
 using Swashbuckle.AspNetCore.Swagger;
 
 public class Startup
@@ -15,19 +18,7 @@ public class Startup
         Configuration = configuration;
     }
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc(options => 
-        {
-            options.EnableEndpointRouting = false;
-            options.Filters.Add<ValidationFilter>();
-        })
-        .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<Startup>());
-
-        services.AddSwaggerGen(s => {
-            s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo{Title="RulesValidatorApi", Version="v1"});
-        });
-    }
+    public void ConfigureServices(IServiceCollection services) => services.SetUpServices(Configuration);
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {

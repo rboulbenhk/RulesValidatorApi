@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RulesValidatorApi.Service.Contracts.V1;
 using RulesValidatorApi.Service.Models.Request;
 
 namespace RulesValidatorApi.Service.Controllers.V1
@@ -17,7 +18,7 @@ namespace RulesValidatorApi.Service.Controllers.V1
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [HttpPost]
+        [HttpPost(ApiRoutes.PostCvsController.Post)]
         public IActionResult Validate([FromBody] CsvConfigurationForValidationDto csvConfiguration)
         {
             try
