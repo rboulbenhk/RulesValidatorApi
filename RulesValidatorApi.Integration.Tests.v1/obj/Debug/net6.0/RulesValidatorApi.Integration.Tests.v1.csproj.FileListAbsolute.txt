@@ -1,0 +1,6 @@
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Integration.Tests.v1.csproj.AssemblyReference.cache
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/MvcTestingAppManifest.json
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Integration.Tests.v1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Integration.Tests.v1.AssemblyInfoInputs.cache
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Integration.Tests.v1.AssemblyInfo.cs
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Integration.Tests.v1.csproj.CoreCompileInputs.cache

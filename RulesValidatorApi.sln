@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Service.v
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Tests.v1", "RulesValidatorApi.Tests.v1\RulesValidatorApi.Tests.v1.csproj", "{83D11A24-02B8-446B-8872-A96865A80696}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Integration.Tests.v1", "RulesValidatorApi.Integration.Tests.v1\RulesValidatorApi.Integration.Tests.v1.csproj", "{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{83D11A24-02B8-446B-8872-A96865A80696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83D11A24-02B8-446B-8872-A96865A80696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83D11A24-02B8-446B-8872-A96865A80696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
