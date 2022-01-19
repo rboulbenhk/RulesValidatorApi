@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Service.v1", "RulesValidatorApi.Service.v1\RulesValidatorApi.Service.v1.csproj", "{CFB84D68-C0B0-4A02-A252-6259E997DAFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Service.v1", "RulesValidatorApi.Service.v1\RulesValidatorApi.Service.csproj", "{CFB84D68-C0B0-4A02-A252-6259E997DAFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Tests.v1", "RulesValidatorApi.Tests.v1\RulesValidatorApi.Tests.v1.csproj", "{83D11A24-02B8-446B-8872-A96865A80696}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Service.Tests.v1", "RulesValidatorApi.Service.Tests.v1\RulesValidatorApi.Service.Tests.v1.csproj", "{83D11A24-02B8-446B-8872-A96865A80696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Integration.Tests.v1", "RulesValidatorApi.Integration.Tests.v1\RulesValidatorApi.Integration.Tests.v1.csproj", "{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulesValidatorApi.Service.Integration.Tests.v1", "RulesValidatorApi.Integration.Tests.v1\RulesValidatorApi.Service.Integration.Tests.v1.csproj", "{CFC7F2E6-92DA-4880-9C5E-14D8795C093C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,13 @@ Global
 		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F745247D-7F0E-4C3A-A5CE-688F7EE9EF17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{680C11E2-B135-449E-AC44-D30422432972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{680C11E2-B135-449E-AC44-D30422432972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{680C11E2-B135-449E-AC44-D30422432972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{680C11E2-B135-449E-AC44-D30422432972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC7F2E6-92DA-4880-9C5E-14D8795C093C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC7F2E6-92DA-4880-9C5E-14D8795C093C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC7F2E6-92DA-4880-9C5E-14D8795C093C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC7F2E6-92DA-4880-9C5E-14D8795C093C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
