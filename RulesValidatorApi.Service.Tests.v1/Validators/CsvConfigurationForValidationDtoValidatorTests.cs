@@ -1,23 +1,23 @@
 using Xunit;
 using FluentValidation.TestHelper;
 using RulesValidatorApi.Service.ValidatorsApi;
-using RulesValidatorApi.Service.Models.Request;
+using RulesValidatorApi.Service.Domains.Request;
 
 namespace RulesValidatorApi.Service.Tests.v1.Validators
 {
     public class CsvConfigurationForValidationDtoValidatorTests
     {
-        private readonly CsvConfigurationForValidationDtoValidator myValidator;
+        private readonly CsvConfigurationForValidationValidator myValidator;
 
         public CsvConfigurationForValidationDtoValidatorTests()
         {
-            myValidator = new CsvConfigurationForValidationDtoValidator();    
+            myValidator = new CsvConfigurationForValidationValidator();    
         }
 
         [Fact]
         public void GivenCsvConfigurationForValidationDtoValidator_WhenThePathIsNotCorrect_ThenIHaveAnError()
         {
-            var model = new CsvConfigurationForValidationDto();
+            var model = new CsvConfigurationForValidation();
             var result = myValidator.TestValidate(model);
             result.ShouldHaveAnyValidationError();
         }

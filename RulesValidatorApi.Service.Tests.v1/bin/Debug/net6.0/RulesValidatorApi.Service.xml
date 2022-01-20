@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RulesValidatorApi.Service</name>
+    </assembly>
+    <members>
+        <member name="M:RulesValidatorApi.Service.Controllers.V1.PostCsvController.Validate(RulesValidatorApi.Service.v1.Contracts.V1.Requests.CsvValidationPostRequest)">
+            <summary>
+            Validate a CSV file with specific rules
+            </summary>
+            <response code="201">CVS File has been validated</response>
+            <response code="400">Error during CSV validation</response>
+        </member>
+    </members>
+</doc>

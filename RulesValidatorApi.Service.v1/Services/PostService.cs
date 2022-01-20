@@ -1,17 +1,19 @@
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RulesValidatorApi.Service.Domains.Response;
 
 namespace RulesValidatorApi.Service.v1.Services
 {
     public class PostService : IPostService
     {
-        public PostService(Parameters)
+        public PostService()
         {
             
         }
-        public IList<CsvValidationPostResponse> PostValidate()
+        public IEnumerable<CsvValidationErrorResponse> PostValidate()
         {
-            
+            return Enumerable.Empty<CsvValidationErrorResponse>();
         }
     }
 }

@@ -18,10 +18,6 @@ namespace RulesValidatorApi.Service.v1.SetUp
             })
             .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<Startup>());
 
-            services.AddSwaggerGen(s => {
-                s.SwaggerDoc(ApiRoutes.Version, new Microsoft.OpenApi.Models.OpenApiInfo{Title=ApiRoutes.Title, Version=ApiRoutes.Version});
-            });
-
             services.AddSingleton<IPostService,PostService>();
         }
     }

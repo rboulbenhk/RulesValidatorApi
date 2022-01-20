@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using RulesValidatorApi.Service.v1.Contracts.V1.Responses;
 
 namespace RulesValidatorApi.Service.Filters
 {
@@ -33,12 +33,12 @@ namespace RulesValidatorApi.Service.Filters
             {                
                 foreach (var subError in (error.Value ?? Enumerable.Empty<string>()))
                 {
-                    var errorModel = new ErrorModel
+                    var errorModel = new ErrorCode
                     {
                         FieldName = error.Key,
                         Message = subError
                     };
-                    errorResponse.Errors.Add(errorModel);
+                    errorResponse?.Errors.Add(errorModel);
                 }
             } 
             return errorResponse;

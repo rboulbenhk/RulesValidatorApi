@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RulesValidatorApi.Service.Filters;
 using RulesValidatorApi.Service.v1.SetUp;
 using Swashbuckle.AspNetCore.Swagger;
@@ -18,18 +19,26 @@ public class Startup
         Configuration = configuration;
     }
 
-    public void ConfigureServices(IServiceCollection services) => services.SetUpServices(Configuration);
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.SetUpServices(Configuration);
+        services.AddAutoMapper(typeof(Startup));
+    }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        // if (env.IsDevelopment())
-        // {
-        //     app.UseDeveloperExceptionPage();
-        // }
-        // else
-        // {
-        //     app.UseExceptionHandler();
-        // }
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
         var swaggerOptions = new RulesValidatorApi.Service.OptionsApi.SwaggerOptions();
         Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
         

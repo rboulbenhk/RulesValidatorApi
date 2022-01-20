@@ -1,12 +1,12 @@
 using System.IO;
 using FluentValidation;
-using RulesValidatorApi.Service.Models.Request;
+using RulesValidatorApi.Service.Domains.Request;
 
 namespace RulesValidatorApi.Service.ValidatorsApi
 {
-    public class CsvConfigurationForValidationDtoValidator : AbstractValidator<CsvConfigurationForValidationDto>
+    public class CsvConfigurationForValidationValidator : AbstractValidator<CsvConfigurationForValidation>
     {
-        public CsvConfigurationForValidationDtoValidator()
+        public CsvConfigurationForValidationValidator()
         {
             RuleFor(rule => rule.FilePath)
             .Cascade(CascadeMode.Stop)
