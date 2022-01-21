@@ -13,7 +13,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
             && !t.IsInterface 
             && !t.IsAbstract).Select(Activator.CreateInstance).Cast<ISetUp>().ToList();
 
-            setUpInstances.ForEach(s => s.InstallService(configuration, services));
+            setUpInstances.ForEach(s => s.InstallServices(configuration, services));
         }
     }
 }

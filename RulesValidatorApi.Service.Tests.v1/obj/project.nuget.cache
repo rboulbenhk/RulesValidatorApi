@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kP2P7Nwfnua/b3M98UpIQYCB/KeGy/Wf16jz7izU0COBLBr+nY9Gdl7HrvEqQxNO6/9vMGfRAlJ8LeXwMVJ/bg==",
+  "dgSpecHash": "3OKz7zDLEmRRB99RsShE0I6P8e6e2gq7uMZSqTF7hGBkGR3qvdHdP8kgJlwUsytqHzvcibbnmhGCgaawfQaDtw==",
   "success": true,
   "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.Tests.v1/RulesValidatorApi.Service.Tests.v1.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,9 @@
     "/Users/romainboulben/.nuget/packages/fluentvalidation/10.3.6/fluentvalidation.10.3.6.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/fluentvalidation.aspnetcore/10.3.6/fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/fluentvalidation.dependencyinjectionextensions/10.3.6/fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/mediatr/10.0.1/mediatr.10.0.1.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/10.0.1/mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.codecoverage/16.11.0/microsoft.codecoverage.16.11.0.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

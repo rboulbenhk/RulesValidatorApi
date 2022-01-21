@@ -11,11 +11,11 @@ namespace RulesValidatorApi.Service.v1.SwaggerExamples.Requests
             var ruleSetRequest = new PostRuleSetRequest();
             ruleSetRequest.ColumnId = 1;
             ruleSetRequest.RuleName = "The name of the rule to apply on this column";
-            ruleSetRequest.Argument = new List<string>{"Optional argument to provide to apply the rule"};
+            ruleSetRequest.Arguments = new List<string>{"Optional argument used to validate the rule"};
             return new CsvValidationPostRequest
             {
                 FilePath = "The path of the CSV file you want to validate",
-                RuleSetConfiguration = new List<PostRuleSetRequest>{ruleSetRequest}
+                RuleSet = new List<PostRuleSetRequest>{ruleSetRequest}
             };
         }
     }

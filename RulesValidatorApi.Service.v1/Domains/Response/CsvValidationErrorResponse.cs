@@ -4,6 +4,6 @@ namespace RulesValidatorApi.Service.Domains.Response
 {
     public class CsvValidationErrorResponse
     {
-        public IList<ErrorDetail> Errors {get; set; } = new List<ErrorDetail>();
+        public IEnumerable<ErrorDetail> Errors {get; set; } = new List<ErrorDetail>();
     }
 }

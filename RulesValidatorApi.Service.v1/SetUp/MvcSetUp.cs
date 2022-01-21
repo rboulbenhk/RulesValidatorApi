@@ -9,7 +9,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
 {
     public class MvcSetUp : ISetUp
     {
-        public void InstallService(IConfiguration configuration, IServiceCollection services)
+        public void InstallServices(IConfiguration configuration, IServiceCollection services)
         {
             services.AddMvc(options => 
             {

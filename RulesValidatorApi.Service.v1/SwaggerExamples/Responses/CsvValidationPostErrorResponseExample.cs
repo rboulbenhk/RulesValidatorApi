@@ -9,7 +9,7 @@ namespace RulesValidatorApi.Service.v1.SwaggerExamples.Responses
         public CsvValidationPostErrorResponse GetExamples()
         {
             var error = new PostErrorDetail();
-            error.Message = "Error Message displayed";
+            error.Message = "Error Message output displayed after CSV validation";
             return new CsvValidationPostErrorResponse{Errors = new List<PostErrorDetail>{error}};
         }
     }

@@ -1,12 +1,9 @@
-using System;
-using System.Linq;
-using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RulesValidatorApi.Service.Filters;
 using RulesValidatorApi.Service.v1.SetUp;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -22,7 +19,8 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.SetUpServices(Configuration);
-        services.AddAutoMapper(typeof(Startup));
+        services.AddAutoMapper(typeof(Startup)); 
+        services.AddMediatR(typeof(Startup));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

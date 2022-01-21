@@ -8,7 +8,7 @@ namespace RulesValidatorApi.Service.v1.SwaggerExamples.Responses
     {
         public ErrorResponse GetExamples()
         {
-            var errorCode = new ErrorCode{ FieldName = "The invalid field name", Message= "Detail on the error"};
+            var errorCode = new ErrorCode{ FieldName = "Invalid field name", Message= "Error message detail"};
             return new ErrorResponse
             {
                 Errors = new List<ErrorCode>{errorCode}

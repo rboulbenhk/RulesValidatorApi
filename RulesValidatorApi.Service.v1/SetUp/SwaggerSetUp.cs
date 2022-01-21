@@ -10,7 +10,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
 {
     public class SwaggerSetUp : ISetUp
     {
-        public void InstallService(IConfiguration configuration, IServiceCollection services)
+        public void InstallServices(IConfiguration configuration, IServiceCollection services)
         {
             services.AddSwaggerGen(s => {
                 s.SwaggerDoc(ApiRoutes.Version, new Microsoft.OpenApi.Models.OpenApiInfo{Title=ApiRoutes.Title, Version=ApiRoutes.Version});
