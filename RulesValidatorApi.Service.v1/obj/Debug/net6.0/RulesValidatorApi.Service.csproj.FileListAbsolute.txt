@@ -41,3 +41,6 @@
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Swashbuckle.AspNetCore.Filters.dll
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/obj/Debug/net6.0/RulesValidatorApi.Service.xml
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/MediatR.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/MediatR.Contracts.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Service.v1/bin/Debug/net6.0/MediatR.Extensions.Microsoft.DependencyInjection.dll

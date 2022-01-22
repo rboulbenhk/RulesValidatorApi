@@ -21,12 +21,16 @@ namespace RulesValidatorApi.Service.Controllers.V1
     public class PostCsvController : ControllerBase
     {
         private readonly ILogger<PostCsvController> _logger;
+        private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
+            
         public PostCsvController(ILogger<PostCsvController> logger,
+        IMapper mapper,
         IMediator mediator)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mapper = mapper;
             _mediator = mediator;
         }
 
@@ -43,8 +47,8 @@ namespace RulesValidatorApi.Service.Controllers.V1
         {
             try
             {
-
-                var csvValidationPostErrorResponse = await _mediator.Send(csvValidationPostRequest);
+                var csvValidationPostRequestCommand = _mapper.Map<CsvValidationPostRequestCommand>(csvValidationPostRequest);
+                var csvValidationPostErrorResponse = await _mediator.Send(csvValidationPostRequestCommand);
                 return Ok(csvValidationPostErrorResponse);
                 // var csvConfigurationForValidation = _mapper.Map<CsvConfigurationForValidation>(csvValidationPostRequest);
                 // var response = await _postService.PostValidateAsync(csvConfigurationForValidation);

@@ -2,8 +2,8 @@ namespace RulesValidatorApi.Service.Domains.Response
 {
     public class ErrorDetail
     {
-        public string? ErrorName { get; set; }
-        public string? Message { get; set; }
+        public string ErrorName { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
     }
 }
 

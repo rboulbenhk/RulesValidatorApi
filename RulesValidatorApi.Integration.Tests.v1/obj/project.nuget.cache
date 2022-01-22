@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GT71BFp/BlqZOaLXcXdjcz4YPwcAj0sq23nal7Blt2R8tZgp+Rggpd/aUW1wOxnfQ+XOAwkh7ea5STKQ/elgew==",
+  "dgSpecHash": "a+W5BwOZVRCQ0qN8e9rnPDufsyrhCszMrQ0WRrQKW2ZPyhRkrz+k7+hGzCw+YmFlRqT4UVx3qW7FEt6vGCyr3A==",
   "success": true,
   "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Service.Integration.Tests.v1.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,9 @@
     "/Users/romainboulben/.nuget/packages/fluentvalidation/10.3.6/fluentvalidation.10.3.6.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/fluentvalidation.aspnetcore/10.3.6/fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/fluentvalidation.dependencyinjectionextensions/10.3.6/fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/mediatr/10.0.1/mediatr.10.0.1.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
+    "/Users/romainboulben/.nuget/packages/mediatr.extensions.microsoft.dependencyinjection/10.0.1/mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.aspnetcore.mvc.testing/6.0.1/microsoft.aspnetcore.mvc.testing.6.0.1.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.aspnetcore.testhost/6.0.1/microsoft.aspnetcore.testhost.6.0.1.nupkg.sha512",
     "/Users/romainboulben/.nuget/packages/microsoft.codecoverage/16.11.0/microsoft.codecoverage.16.11.0.nupkg.sha512",

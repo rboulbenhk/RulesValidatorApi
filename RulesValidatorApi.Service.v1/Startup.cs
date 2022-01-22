@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RulesValidatorApi.Service.v1.PipelineBehaviors;
 using RulesValidatorApi.Service.v1.SetUp;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -21,6 +22,7 @@ public class Startup
         services.SetUpServices(Configuration);
         services.AddAutoMapper(typeof(Startup)); 
         services.AddMediatR(typeof(Startup));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

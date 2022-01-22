@@ -7,7 +7,7 @@ namespace RulesValidatorApi.Service.v1.Commands
 {
     public class CsvValidationPostRequestCommand : IRequest<IEnumerable<CsvValidationPostErrorResponse>>
     {
-        public string? FilePath { get; set; }
+        public string FilePath { get; set; } = string.Empty;
         public IEnumerable<PostRuleSetRequest> RuleSet { get; set; } = new List<PostRuleSetRequest>();
     }
 }
