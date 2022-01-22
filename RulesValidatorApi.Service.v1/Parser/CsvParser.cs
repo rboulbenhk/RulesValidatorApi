@@ -32,7 +32,7 @@ namespace RulesValidatorApi.Service.Parser
                 while(!_streamReader.EndOfStream)
                 {
                     string? line = await _streamReader.ReadLineAsync();
-                    yield return new CsvRow(_header, line, ++rowNumber);
+                    yield return new CsvRow(_header, line ?? string.Empty, ++rowNumber);
                 }
             }
             return InnerRead();

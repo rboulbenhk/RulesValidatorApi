@@ -6,12 +6,13 @@ namespace RulesValidatorApi.Service.Tests.v1.Validators
     //TODO to rename
     public class CsvConfigurationForValidationDtoValidatorTests
     {
-        private readonly CsvValidationPostRequestCommandValidator myValidator;
+        private readonly CsvValidationPostRequestCommandValidator? _myValidator;
 
         public CsvConfigurationForValidationDtoValidatorTests()
         {
             // TODO mock IOptionsMonitor
-            // myValidator = new CsvValidationPostRequestCommandValidator();    
+            _myValidator = null;
+            //_myValidator = new CsvValidationPostRequestCommandValidator();    
         }
 
         [Fact]

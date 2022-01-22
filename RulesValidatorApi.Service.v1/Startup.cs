@@ -21,7 +21,7 @@ public class Startup
     {
         services.SetUpServices(Configuration);
         services.AddAutoMapper(typeof(Startup)); 
-        services.AddMediatR(typeof(Startup));
+        services.AddMediatR(typeof(Startup));        
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
     }
 

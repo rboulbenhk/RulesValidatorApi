@@ -1,8 +1,6 @@
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RulesValidatorApi.Service.Contracts.V1;
-using RulesValidatorApi.Service.Filters;
 using RulesValidatorApi.Service.v1.Rules;
 using RulesValidatorApi.Service.v1.Services;
 
@@ -14,8 +12,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
         {
             services.AddMvc(options => 
             {
-                options.EnableEndpointRouting = false;
-                options.Filters.Add<ValidationFilter>();
+                options.EnableEndpointRouting = false;                
             })
             .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<Startup>());
 

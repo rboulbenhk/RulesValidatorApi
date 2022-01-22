@@ -1,46 +1,61 @@
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Logging;
+using RulesValidatorApi.Service.v1.Commands;
 
 namespace RulesValidatorApi.Service.v1.PipelineBehaviors
 {
-    // public class BadResponse : ValidationBehaviorResult<>
-    // {
-
-    // }
-
-    // public interface ValidationBehaviorResult<T> where T : class
-    // {        
-    // }
 
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IRequest<TResponse>
+    where TRequest : IRequest<TResponse>, IValidateable
+    where TResponse : class
     {
+        private readonly IValidator<TRequest> _compositeValidator;
+        private readonly ILogger<TRequest> _logger;
 
-        private readonly IEnumerable<IValidator<TRequest>> _validators;
-        
-        public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
+        public ValidationBehavior(IValidator<TRequest> compositeValidator, ILogger<TRequest> logger)
         {
-            _validators = validators;
+            _compositeValidator = compositeValidator;
+            _logger = logger;
         }
 
-        public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var context = new ValidationContext<TRequest>(request);
-            var failures = _validators.Select(v => v.Validate(context))
-            .SelectMany(v => v.Errors)
-            .Where(v => v != null).ToList();
+            var result = await _compositeValidator.ValidateAsync(request, cancellationToken);
 
-            if(failures.Any())
+            if (!result.IsValid)
             {
-                //TODO not return a Result<TResponse> the bad version of the Result not the good version BadRe 
-                //throw new ValidationException(failures);  
+                var messages = result.Errors.Select(s => s.ErrorMessage);
+                var errorMessage = string.Join(",\n",messages);
+                _logger.LogError($"Error during validation : {errorMessage}");
+
+                var responseType = typeof(TResponse);
+
+                if (responseType.IsGenericType)
+                {
+                    var resultType = responseType.GetGenericArguments()[0];
+                    var invalidResponseType = typeof(ValidateableResponse<>).MakeGenericType(resultType);
+
+                    var invalidResponse =
+                        Activator.CreateInstance(invalidResponseType, null, messages.ToList()) as TResponse;
+
+                    if(invalidResponse == null)
+                    {
+                        _logger.LogError($"Unable to return an invalid response for : {errorMessage}");
+                    }
+
+                    return invalidResponse!;
+                }
             }
-            return next();
+
+            var response = await next();
+
+            return response;
         }
     }
 }

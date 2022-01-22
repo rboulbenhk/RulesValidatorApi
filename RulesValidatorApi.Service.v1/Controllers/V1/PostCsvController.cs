@@ -40,8 +40,7 @@ namespace RulesValidatorApi.Service.Controllers.V1
         /// <response code="200">CVS File has been validated</response>
         /// <response code="400">Error during CSV validation</response>
         [HttpPost(ApiRoutes.PostCvsController.Post)]
-        [ProducesResponseType(typeof(CsvValidationPostErrorResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(CsvValidationPostErrorResponse), StatusCodes.Status200OK)]        
         [ProducesResponseType(typeof(Exception), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> ValidateAsync([FromBody] CsvValidationPostRequest csvValidationPostRequest)
         {
@@ -49,12 +48,11 @@ namespace RulesValidatorApi.Service.Controllers.V1
             {
                 var csvValidationPostRequestCommand = _mapper.Map<CsvValidationPostRequestCommand>(csvValidationPostRequest);
                 var csvValidationPostErrorResponse = await _mediator.Send(csvValidationPostRequestCommand);
-                return Ok(csvValidationPostErrorResponse);
-                // var csvConfigurationForValidation = _mapper.Map<CsvConfigurationForValidation>(csvValidationPostRequest);
-                // var response = await _postService.PostValidateAsync(csvConfigurationForValidation);
-
-                // var csvValidationPostErrorResponse = new CsvValidationPostErrorResponse();
-                // return Ok(new Response<List<CsvValidationPostErrorResponse>>(_mapper.Map<List<CsvValidationPostErrorResponse>>(response)));
+                if(csvValidationPostErrorResponse.IsValidResponse)
+                {
+                    return Ok(csvValidationPostErrorResponse.Result);
+                }
+                return BadRequest(new { Error = csvValidationPostErrorResponse.Errors });
             }
             catch (Exception ex)
             {
