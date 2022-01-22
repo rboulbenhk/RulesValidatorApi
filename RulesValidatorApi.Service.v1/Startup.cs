@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RulesValidatorApi.Service.v1.PipelineBehaviors;
+using RulesValidatorApi.Service.v1.Rules;
 using RulesValidatorApi.Service.v1.SetUp;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -23,6 +25,8 @@ public class Startup
         services.AddAutoMapper(typeof(Startup)); 
         services.AddMediatR(typeof(Startup));        
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.Configure<MaxNumberOfResponseOptions>(Configuration.GetSection(MaxNumberOfResponseOptions.SectionName));
+        services.Configure<IEnumerable<RuleSetOptions>>(Configuration.GetSection(RuleSetOptions.SectionName));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -41,7 +45,7 @@ public class Startup
 
         var swaggerOptions = new RulesValidatorApi.Service.OptionsApi.SwaggerOptions();
         Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
-        
+ 
         app.UseSwagger(o => 
         {
             o.RouteTemplate = swaggerOptions.JsonRoute;

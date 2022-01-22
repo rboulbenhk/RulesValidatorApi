@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a+W5BwOZVRCQ0qN8e9rnPDufsyrhCszMrQ0WRrQKW2ZPyhRkrz+k7+hGzCw+YmFlRqT4UVx3qW7FEt6vGCyr3A==",
+  "dgSpecHash": "u71d3TexG6BUdNR6A8o0USE+xjZIFNAUI+dfJDDTDmhB4Lw239GSiiahVz8xk/pc8UnpQ4J24gsJQ1YzFoB1uQ==",
   "success": true,
   "projectFilePath": "/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/RulesValidatorApi.Service.Integration.Tests.v1.csproj",
   "expectedPackageFiles": [

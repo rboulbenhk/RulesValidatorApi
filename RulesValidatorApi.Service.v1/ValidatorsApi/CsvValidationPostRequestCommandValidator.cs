@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -10,9 +12,9 @@ namespace RulesValidatorApi.Service.ValidatorsApi
 {
     public class CsvValidationPostRequestCommandValidator : AbstractValidator<CsvValidationPostRequestCommand>
     {
-        private readonly IOptionsMonitor<RuleSetOptions> _ruleSetOptions;
+        private readonly IOptionsMonitor<IEnumerable<RuleSetOptions>> _ruleSetOptions;
 
-        public CsvValidationPostRequestCommandValidator(IOptionsMonitor<RuleSetOptions> ruleSetOptions)
+        public CsvValidationPostRequestCommandValidator(IOptionsMonitor<IEnumerable<RuleSetOptions>> ruleSetOptions)
         {
             _ruleSetOptions = ruleSetOptions;
             
@@ -28,11 +30,22 @@ namespace RulesValidatorApi.Service.ValidatorsApi
             .NotEmpty()
             .ChildRules(ruleSet =>
                 {
-                    ruleSet.RuleFor(x => x.ColumnId).GreaterThan(0).WithMessage("ColumnId {CollectionIndex} must be correct");
+                    ruleSet.RuleFor(x => x.ColumnId)
+                    .Cascade(CascadeMode.Stop)
+                    .GreaterThan(0)
+                    .WithMessage("ColumnId {CollectionIndex} must be correct");
+                    
                     ruleSet.RuleFor(x => x.RuleName)
+                            .Cascade(CascadeMode.Stop)
                             .NotEmpty()
                             .MustAsync(IsRuleNameValid)
                             .WithMessage("RuleName {CollectionIndex} must be correct");
+                    
+                    ruleSet.RuleFor(x => x.Arguments)
+                            .Cascade(CascadeMode.Stop)
+                            .NotEmpty()
+                            .Must(IsRuleNameArgumentsValid)
+                            .WithMessage("Arguments {CollectionIndex} must be correct");     
                 });
         }
 
@@ -42,9 +55,19 @@ namespace RulesValidatorApi.Service.ValidatorsApi
         } 
 
         private async Task<bool> IsRuleNameValid(string ruleName, CancellationToken cancellation = new CancellationToken())
-        {
-            //TODO manage collection of rules
-            return await Task.FromResult(string.Equals(_ruleSetOptions.CurrentValue.RuleName,ruleName,System.StringComparison.Ordinal));
+        {            
+            return await Task.FromResult(_ruleSetOptions.CurrentValue.Select(r => r.RuleName).Any(rule => string.Equals(rule,ruleName,System.StringComparison.Ordinal)));
+        }
+
+        private bool IsRuleNameArgumentsValid(IEnumerable<string>? arguments)
+        {   
+            if(arguments == null || arguments.Any())
+            {
+                return true;
+            }
+
+            //TODO we need to check the arguments of the rule
+            return true;
         }
     }
 }
