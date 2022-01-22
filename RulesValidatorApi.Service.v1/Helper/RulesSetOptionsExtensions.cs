@@ -6,7 +6,7 @@ namespace RulesValidatorApi.Service.v1.Helper
     {
         public static string DisplayInformation(this RuleSetOptions ruleSetOption)
         {
-            return $"{ruleSetOption.RuleName}\n{ruleSetOption.Description}\n{ruleSetOption.Example}";
+            return $"{ruleSetOption.Name}\n{ruleSetOption.Description}\n{ruleSetOption.Example}";
         }
     }
 }

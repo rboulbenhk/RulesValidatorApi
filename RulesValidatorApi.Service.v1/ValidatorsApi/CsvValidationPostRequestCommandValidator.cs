@@ -56,7 +56,7 @@ namespace RulesValidatorApi.Service.ValidatorsApi
 
         private async Task<bool> IsRuleNameValid(string ruleName, CancellationToken cancellation = new CancellationToken())
         {            
-            return await Task.FromResult(_ruleSetOptions.CurrentValue.Select(r => r.RuleName).Any(rule => string.Equals(rule,ruleName,System.StringComparison.Ordinal)));
+            return await Task.FromResult(_ruleSetOptions.CurrentValue.Select(r => r.Name).Any(rule => string.Equals(rule,ruleName,System.StringComparison.Ordinal)));
         }
 
         private bool IsRuleNameArgumentsValid(IEnumerable<string>? arguments)

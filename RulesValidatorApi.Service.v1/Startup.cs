@@ -1,14 +1,9 @@
-using System.Collections.Generic;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RulesValidatorApi.Service.v1.PipelineBehaviors;
-using RulesValidatorApi.Service.v1.Rules;
 using RulesValidatorApi.Service.v1.SetUp;
-using Swashbuckle.AspNetCore.Swagger;
 
 public class Startup
 {
@@ -21,12 +16,10 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddControllers();
+        services.AddEndpointsApiExplorer();
+        services.AddOptions();
         services.SetUpServices(Configuration);
-        services.AddAutoMapper(typeof(Startup)); 
-        services.AddMediatR(typeof(Startup));        
-        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-        services.Configure<MaxNumberOfResponseOptions>(Configuration.GetSection(MaxNumberOfResponseOptions.SectionName));
-        services.Configure<IEnumerable<RuleSetOptions>>(Configuration.GetSection(RuleSetOptions.SectionName));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,21 +30,36 @@ public class Startup
         }
         else
         {
-            app.UseExceptionHandler();
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
         }
-
-        app.UseHttpsRedirection();
+        
         app.UseStaticFiles();
-
+        
         var swaggerOptions = new RulesValidatorApi.Service.OptionsApi.SwaggerOptions();
-        Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
- 
-        app.UseSwagger(o => 
+        Configuration.GetSection(nameof(RulesValidatorApi.Service.OptionsApi.SwaggerOptions)).Bind(swaggerOptions);
+        
+
+        app.UseSwagger();
+        app.UseSwaggerUI(options =>
         {
-            o.RouteTemplate = swaggerOptions.JsonRoute;
+            options.SwaggerEndpoint("/swagger/csv/swagger.json", swaggerOptions.Description);
+            options.RoutePrefix = string.Empty;
         });
-        app.UseSwaggerUI(o => o.SwaggerEndpoint(swaggerOptions.UIEndPoint, swaggerOptions.Description));
-        app.UseStatusCodePages();
-        app.UseMvc();
+
+
+        // app.UseSwagger(o =>
+        // {
+        //     o.RouteTemplate = swaggerOptions.JsonRoute;
+        // });
+        // app.UseSwaggerUI(o => {
+        //     o.SwaggerEndpoint(swaggerOptions.UIEndPoint, swaggerOptions.Description);
+        //     //o.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        //     //o.RoutePrefix = string.Empty;
+
+        // });        
+        app.UseHttpsRedirection();
+        app.UseRouting();
+        app.UseStatusCodePages("text/html", "We're <b>really</b> sorry, but something went wrong. Error code: {0}");
     }
 }

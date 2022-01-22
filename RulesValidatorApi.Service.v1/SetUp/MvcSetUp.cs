@@ -1,7 +1,8 @@
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RulesValidatorApi.Service.v1.Rules;
+using RulesValidatorApi.Service.v1.PipelineBehaviors;
 using RulesValidatorApi.Service.v1.Services;
 
 namespace RulesValidatorApi.Service.v1.SetUp
@@ -13,13 +14,12 @@ namespace RulesValidatorApi.Service.v1.SetUp
             services.AddMvc(options => 
             {
                 options.EnableEndpointRouting = false;                
-            })
-            .AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<Startup>());
-
+            });
+            services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<Startup>());
             services.AddSingleton<IPostService,PostService>();
-
-            var ruleSetOptions = configuration.GetSection(RuleSetOptions.SectionName).Get<RuleSetOptions>();
-            services.AddSingleton(ruleSetOptions);
+            services.AddAutoMapper(typeof(Startup));
+            services.AddMediatR(typeof(Startup));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         }
     }
 }
