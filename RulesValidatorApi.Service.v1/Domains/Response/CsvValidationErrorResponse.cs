@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RulesValidatorApi.Service.Domains.Response
 {
     public class CsvValidationErrorResponse
     {
-        public IEnumerable<ErrorDetail> Errors {get; set; } = new List<ErrorDetail>();
+        public string Message { get; set; } = string.Empty;
+        public IEnumerable<string> Errors {get; set;} = Enumerable.Empty<string>();
     }
 }

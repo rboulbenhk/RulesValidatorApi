@@ -9,7 +9,7 @@ namespace RulesValidatorApi.Service.MappingProfiles
         public DomainsToResponseProfile()
         {
             CreateMap<CsvValidationErrorResponse, CsvValidationPostErrorResponse>();
-            CreateMap<ErrorDetail, PostErrorDetail>();
+            CreateMap<GetAllCsvRulesResponse, GetAllCsvRulesResponse>();
         }
     }
 }

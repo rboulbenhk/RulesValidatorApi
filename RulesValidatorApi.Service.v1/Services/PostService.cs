@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RulesValidatorApi.Service.Domains.Request;
 using RulesValidatorApi.Service.Domains.Response;
+using RulesValidatorApi.Service.v1.Domains.Response;
 using RulesValidatorApi.Service.v1.Rules;
 
 namespace RulesValidatorApi.Service.v1.Services
@@ -38,6 +39,11 @@ namespace RulesValidatorApi.Service.v1.Services
             //TODO Stop when you have the max validation defined reached
 
             return await Task.FromResult(Enumerable.Empty<CsvValidationErrorResponse>());
+        }
+
+        public async Task<IEnumerable<CsvRulesResponse>> GetAllCsvRulesAsync()
+        {
+            return await Task.FromResult(Enumerable.Empty<CsvRulesResponse>());
         }
     }
 }

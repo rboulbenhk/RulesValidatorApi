@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RulesValidatorApi.Service.Domains.Request
 {
@@ -6,6 +7,6 @@ namespace RulesValidatorApi.Service.Domains.Request
     {
         public int ColumnId { get; set; }
         public string RuleName { get; set; } = string.Empty;
-        public IEnumerable<string>? Arguments { get; set; }
+        public IEnumerable<string> Arguments { get; set; } = Enumerable.Empty<string>();
     }
 }

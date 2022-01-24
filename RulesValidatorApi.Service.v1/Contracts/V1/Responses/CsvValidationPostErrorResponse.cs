@@ -5,6 +5,7 @@ namespace RulesValidatorApi.Service.v1.Contracts.V1.Responses
 {
     public class CsvValidationPostErrorResponse
     {
-        public IEnumerable<PostErrorDetail> Errors {get; set;} = Enumerable.Empty<PostErrorDetail>();
+        public string Message { get; set; } = string.Empty;
+        public IEnumerable<string> Errors {get; set;} = Enumerable.Empty<string>();
     }
 }

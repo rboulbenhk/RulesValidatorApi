@@ -11,7 +11,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
         public void InstallServices(IConfiguration configuration, IServiceCollection services)
         {
             services.Configure<MaxNumberOfResponseOptions>(configuration.GetSection(MaxNumberOfResponseOptions.SectionName));
-            services.Configure<IEnumerable<RuleSetOptions>>(configuration.GetSection(RuleSetOptions.SectionName));
+            services.Configure<List<RuleSetOptions>>(configuration.GetSection(RuleSetOptions.SectionName));
         }
     }
 }

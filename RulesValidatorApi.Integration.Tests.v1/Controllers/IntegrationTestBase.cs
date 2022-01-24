@@ -23,7 +23,7 @@ namespace RulesValidatorApi.Integration.Tests.v1.Controllers
 
         protected async Task<CsvValidationPostErrorResponse> ValidateAsync(CsvValidationPostRequest request)
         {
-            var response = await MyClient.PostAsJsonAsync(ApiRoutes.PostCvsController.Post, request);
+            var response = await MyClient.PostAsJsonAsync(ApiRoutes.PostCvsController.ValidateAsync, request);
             var responseContent = await response.Content.ReadAsStringAsync();
             var csvValidationPostErrorMessage = JsonConvert.DeserializeObject<CsvValidationPostErrorResponse>(responseContent);
             return csvValidationPostErrorMessage!;

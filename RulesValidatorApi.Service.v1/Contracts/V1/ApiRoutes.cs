@@ -9,7 +9,8 @@ namespace RulesValidatorApi.Service.Contracts.V1
 
         public static class PostCvsController
         {
-            public const string Post = $"{Base}/CSV/ValidateAsync";
+            public const string ValidateAsync = $"{Base}/CSV/ValidateAsync";
+            public const string GetAllRulesAsync = $"{Base}/CSV/GetAllRulesAsync";
         }
     }
 }
