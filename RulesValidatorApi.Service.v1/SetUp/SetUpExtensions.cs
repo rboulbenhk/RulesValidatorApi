@@ -1,8 +1,3 @@
-using System;
-using System.Linq;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace RulesValidatorApi.Service.v1.SetUp
 {
     public static class SetUpExtensions
@@ -13,7 +8,6 @@ namespace RulesValidatorApi.Service.v1.SetUp
             && !t.IsInterface 
             && !t.IsAbstract).Select(Activator.CreateInstance).Cast<ISetUp>().ToList();
             //TODO check if it is needed
-            //services.AddControllers();
             services.AddEndpointsApiExplorer();
             setUpInstances.ForEach(s => s.InstallServices(configuration, services));
         }

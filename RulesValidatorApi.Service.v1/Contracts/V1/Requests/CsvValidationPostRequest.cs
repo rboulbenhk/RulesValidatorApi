@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace RulesValidatorApi.Service.v1.Contracts.V1.Requests
 {
     public class CsvValidationPostRequest

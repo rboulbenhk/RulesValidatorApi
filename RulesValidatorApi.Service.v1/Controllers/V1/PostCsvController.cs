@@ -1,15 +1,11 @@
-using System;
-using System.Threading.Tasks;
-using AutoMapper;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using RulesValidatorApi.Service.Contracts.V1;
-using RulesValidatorApi.Service.v1.Commands;
-using RulesValidatorApi.Service.v1.Contracts.V1.Requests;
-using RulesValidatorApi.Service.v1.Contracts.V1.Responses;
-using RulesValidatorApi.Service.v1.Queries;
+global using System.Threading.Tasks;
+global using AutoMapper;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.Logging;
+global using RulesValidatorApi.Service.Contracts.V1;
+global using RulesValidatorApi.Service.v1.Commands;
+global using RulesValidatorApi.Service.v1.Queries;
 
 namespace RulesValidatorApi.Service.Controllers.V1
 {
@@ -34,7 +30,7 @@ namespace RulesValidatorApi.Service.Controllers.V1
         /// <summary>
         /// Retrieve all the available rules to apply on the CSV to validate
         /// </summary>
-        [HttpPost(ApiRoutes.PostCvsController.GetAllRulesAsync)]        
+        [HttpGet(ApiRoutes.PostCvsController.GetAllRulesAsync)]
         public async Task<IActionResult> GetAllRulesAsync()
         {
             var query = new GetAllCsvRulesQuery();

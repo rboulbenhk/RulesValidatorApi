@@ -1,12 +1,6 @@
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using FluentValidation;
 using Microsoft.Extensions.Options;
-using RulesValidatorApi.Service.v1.Commands;
-using RulesValidatorApi.Service.v1.Rules;
 
 namespace RulesValidatorApi.Service.ValidatorsApi
 {
@@ -41,7 +35,7 @@ namespace RulesValidatorApi.Service.ValidatorsApi
                             .MustAsync(IsRuleNameValid)
                             .WithMessage("RuleName {CollectionIndex} must be correct");
                     
-                    ruleSet.RuleFor(x => x.Arguments)
+                    ruleSet.RuleFor(x => x.ArgumentValues)
                             .Cascade(CascadeMode.Stop)
                             .NotEmpty()
                             .Must(IsRuleNameArgumentsValid)
@@ -56,7 +50,7 @@ namespace RulesValidatorApi.Service.ValidatorsApi
 
         private async Task<bool> IsRuleNameValid(string ruleName, CancellationToken cancellation = new CancellationToken())
         {            
-            return await Task.FromResult(_ruleSetOptions.CurrentValue.Select(r => r.Name).Any(rule => string.Equals(rule,ruleName,System.StringComparison.Ordinal)));
+            return await Task.FromResult(_ruleSetOptions.CurrentValue.Select(r => r.RuleName).Any(rule => string.Equals(rule,ruleName,System.StringComparison.Ordinal)));
         }
 
         private bool IsRuleNameArgumentsValid(IEnumerable<string>? arguments)

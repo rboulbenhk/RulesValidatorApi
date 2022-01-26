@@ -1,34 +1,36 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RulesValidatorApi.Service.Domains.Request;
-using RulesValidatorApi.Service.Domains.Response;
-using RulesValidatorApi.Service.v1.Domains.Response;
 using RulesValidatorApi.Service.v1.Rules;
 
 namespace RulesValidatorApi.Service.v1.Services
 {
     public class PostService : IPostService
     {
+        private readonly IOptionsMonitor<List<RuleSetOptions>> _ruleSet;
         private readonly IOptionsMonitor<MaxNumberOfResponseOptions> _maxNumberOfResponseOptions;
         private readonly ILogger<PostService> _logger;
         private int? _maxNumberOfErrorsToReturn;
         
         
-        public PostService(IOptionsMonitor<MaxNumberOfResponseOptions> maxNumberOfResponseOptions, ILogger<PostService> logger)
+        public PostService(IOptionsMonitor<List<RuleSetOptions>> ruleSet,
+        IOptionsMonitor<MaxNumberOfResponseOptions> maxNumberOfResponseOptions, 
+        ILogger<PostService> logger)
         {
-            _maxNumberOfResponseOptions = maxNumberOfResponseOptions;
+            _ruleSet = ruleSet;
             _logger = logger;
-            _maxNumberOfErrorsToReturn = SetMaxNumberOfErrorsFromConfiguration();
+            _maxNumberOfErrorsToReturn = SetMaxNumberOfErrorsFromConfiguration(maxNumberOfResponseOptions);
         }
 
-        private int? SetMaxNumberOfErrorsFromConfiguration()
+        private int? SetMaxNumberOfErrorsFromConfiguration(IOptionsMonitor<MaxNumberOfResponseOptions> maxNumberOfResponseOptions)
         {
-            var innerMaxNumberOfResponse = _maxNumberOfResponseOptions.CurrentValue.MaxNumberOfResponse;
+            var innerMaxNumberOfResponse = maxNumberOfResponseOptions.CurrentValue.Value;
             _logger.LogDebug($"{nameof(MaxNumberOfResponseOptions.SectionName)} retrieved from settings = '{innerMaxNumberOfResponse}'");
             return innerMaxNumberOfResponse;
+        }
+        private List<RuleSetOptions> SetRuleSetFromConfiguration(IOptionsMonitor<List<RuleSetOptions>> ruleSet)
+        {
+            var ruleSetValues = ruleSet.CurrentValue;            
+            _logger.LogDebug($"{nameof(RuleSetOptions.SectionName)} retrieved from settings'");
+            return ruleSetValues;
         }
 
         public async Task<IEnumerable<CsvValidationErrorResponse>> PostValidateAsync(CsvConfigurationForValidation csvConfigurationForValidation)
@@ -43,7 +45,7 @@ namespace RulesValidatorApi.Service.v1.Services
 
         public async Task<IEnumerable<CsvRulesResponse>> GetAllCsvRulesAsync()
         {
-            return await Task.FromResult(Enumerable.Empty<CsvRulesResponse>());
+            return await Task.FromResult(_ruleSet.CurrentValue.Select(s => new CsvRulesResponse{RuleName = s.RuleName, Description = s.Description, PossibleArgumentValues = s.PossibleArgumentValues}));
         }
     }
 }

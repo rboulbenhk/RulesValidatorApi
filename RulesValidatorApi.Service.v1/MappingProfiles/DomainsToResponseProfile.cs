@@ -1,7 +1,4 @@
-using AutoMapper;
 using RulesValidatorApi.Service.Domains.Response;
-using RulesValidatorApi.Service.v1.Contracts.V1.Responses;
-
 namespace RulesValidatorApi.Service.MappingProfiles
 {
     public class DomainsToResponseProfile : Profile
@@ -9,7 +6,7 @@ namespace RulesValidatorApi.Service.MappingProfiles
         public DomainsToResponseProfile()
         {
             CreateMap<CsvValidationErrorResponse, CsvValidationPostErrorResponse>();
-            CreateMap<GetAllCsvRulesResponse, GetAllCsvRulesResponse>();
+            CreateMap<CsvRulesResponse, GetAllCsvRulesResponse>();
         }
     }
 }

@@ -1,4 +1,3 @@
-using RulesValidatorApi.Service.v1.Contracts.V1.Responses;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace RulesValidatorApi.Service.v1.SwaggerExamples.Responses

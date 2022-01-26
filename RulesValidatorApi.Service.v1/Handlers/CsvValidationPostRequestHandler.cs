@@ -1,12 +1,6 @@
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
-using MediatR;
-using RulesValidatorApi.Service.Domains.Request;
-using RulesValidatorApi.Service.v1.Commands;
-using RulesValidatorApi.Service.v1.Contracts.V1.Responses;
-using RulesValidatorApi.Service.v1.Services;
+global using System.Threading;
+global using RulesValidatorApi.Service.Domains.Request;
+global using RulesValidatorApi.Service.v1.Services;
 
 namespace RulesValidatorApi.Service.v1.Handlers
 {

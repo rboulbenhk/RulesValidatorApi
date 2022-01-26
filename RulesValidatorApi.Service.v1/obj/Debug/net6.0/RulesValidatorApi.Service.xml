@@ -4,6 +4,11 @@
         <name>RulesValidatorApi.Service</name>
     </assembly>
     <members>
+        <member name="M:RulesValidatorApi.Service.Controllers.V1.PostCsvController.GetAllRulesAsync">
+            <summary>
+            Retrieve all the available rules to apply on the CSV to validate
+            </summary>
+        </member>
         <member name="M:RulesValidatorApi.Service.Controllers.V1.PostCsvController.ValidateAsync(RulesValidatorApi.Service.v1.Contracts.V1.Requests.CsvValidationPostRequest)">
             <summary>
             Validate a CSV file with specific rules

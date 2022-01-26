@@ -1,4 +1,3 @@
-using System;
 
 namespace RulesValidatorApi.Service.Rules.CsvFile
 {

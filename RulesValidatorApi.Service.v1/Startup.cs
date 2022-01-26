@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using RulesValidatorApi.Service.v1.SetUp;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using RulesValidatorApi.Service.v1.SetUp;
 
 public class Startup
 {
@@ -16,10 +15,10 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddControllers();
-        services.AddEndpointsApiExplorer();
-        services.AddOptions();
+        //services.AddControllers();        
         services.SetUpServices(Configuration);
+        services.AddControllers();
+        services.AddOptions();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,11 +33,16 @@ public class Startup
             app.UseHsts();
         }
         
-        app.UseStaticFiles();
+        //app.UseStaticFiles();
         
         var swaggerOptions = new RulesValidatorApi.Service.OptionsApi.SwaggerOptions();
         Configuration.GetSection(nameof(RulesValidatorApi.Service.OptionsApi.SwaggerOptions)).Bind(swaggerOptions);
         
+        var myOPtions = new MaxNumberOfResponseOptions();
+        Configuration.GetSection(MaxNumberOfResponseOptions.SectionName).Bind(myOPtions);
+
+        var myRuleSet = new List<RuleSetOptions>();
+        Configuration.GetSection(RuleSetOptions.SectionName).Bind(myRuleSet);
 
         app.UseSwagger();
         app.UseSwaggerUI(options =>
@@ -59,7 +63,14 @@ public class Startup
 
         // });        
         app.UseHttpsRedirection();
+        
         app.UseRouting();
-        app.UseStatusCodePages("text/html", "We're <b>really</b> sorry, but something went wrong. Error code: {0}");
+        //app.UseStatusCodePages("text/html", "We're <b>really</b> sorry, but something went wrong. Error code: {0}");   
+        app.UseEndpoints(endpoints => {            
+            endpoints.MapControllers();
+            endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+        });     
     }
 }

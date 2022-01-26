@@ -1,5 +1,3 @@
-using System;
-
 namespace RulesValidatorApi.Service.Rules.CsvFileCellRules
 {
     public class IsSpecificDateFormat : IRulesValidator

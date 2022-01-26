@@ -1,10 +1,6 @@
-using System;
 using System.IO;
 using System.Reflection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using RulesValidatorApi.Service.Contracts.V1;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace RulesValidatorApi.Service.v1.SetUp

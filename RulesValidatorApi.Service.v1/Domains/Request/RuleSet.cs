@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace RulesValidatorApi.Service.Domains.Request
 {
     public class RuleSet

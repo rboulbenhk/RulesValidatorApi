@@ -417,3 +417,5 @@
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/ref/RulesValidatorApi.Service.Integration.Tests.v1.dll
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Service.Integration.Tests.v1.pdb
 /Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/obj/Debug/net6.0/RulesValidatorApi.Service.Integration.Tests.v1.genruntimeconfig.cache
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/bin/Debug/net6.0/System.Net.Http.Formatting.dll
+/Users/romainboulben/Desktop/Git/RulesValidatorApi/RulesValidatorApi.Integration.Tests.v1/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll

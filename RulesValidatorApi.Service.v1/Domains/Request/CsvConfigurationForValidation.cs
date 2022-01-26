@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 namespace RulesValidatorApi.Service.Domains.Request
 {
     public class CsvConfigurationForValidation

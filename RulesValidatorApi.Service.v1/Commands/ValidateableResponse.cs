@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+global using System.Collections.ObjectModel;
+global using System.Linq;
 
 namespace RulesValidatorApi.Service.v1.Commands
 {

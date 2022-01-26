@@ -1,9 +1,5 @@
-using FluentValidation.AspNetCore;
-using MediatR;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using RulesValidatorApi.Service.v1.PipelineBehaviors;
-using RulesValidatorApi.Service.v1.Services;
+global using FluentValidation.AspNetCore;
+global using RulesValidatorApi.Service.v1.PipelineBehaviors;
 
 namespace RulesValidatorApi.Service.v1.SetUp
 {

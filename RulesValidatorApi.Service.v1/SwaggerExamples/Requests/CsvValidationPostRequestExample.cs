@@ -1,8 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Extensions.Options;
-using RulesValidatorApi.Service.v1.Contracts.V1.Requests;
-using RulesValidatorApi.Service.v1.Rules;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace RulesValidatorApi.Service.v1.SwaggerExamples.Requests
@@ -14,7 +9,7 @@ namespace RulesValidatorApi.Service.v1.SwaggerExamples.Requests
             var ruleSetRequest = new PostRuleSetRequest();
             ruleSetRequest.ColumnId = 1;
             ruleSetRequest.RuleName = "The name of the rule to apply on this column";
-            ruleSetRequest.Arguments = new List<string>{"Optional argument used to validate the rule"};
+            ruleSetRequest.ArgumentValues = new string[]{"Optional argument used to validate the rule"};
             
             return new CsvValidationPostRequest
             {
