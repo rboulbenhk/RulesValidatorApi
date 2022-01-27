@@ -135,7 +135,7 @@ namespace RulesValidatorApi.Service.Tests.v1.Validators
         {
             var model = new CsvValidationPostRequestCommand();
             model.FilePath = @"MyCsvTestFile.csv";
-            model.RuleSet = new PostRuleSetRequest[]{ new PostRuleSetRequest{ColumnId = 1, RuleName = _ruleSetOptionsWithNoArguments.RuleName, ArgumentValues = new string[]{"MyFakeArguments"} };
+            model.RuleSet = new PostRuleSetRequest[]{ new PostRuleSetRequest{ColumnId = 1, RuleName = _ruleSetOptionsWithNoArguments.RuleName, ArgumentValues = new string[]{"MyFakeArguments"} }};
             var result = new CsvValidationPostRequestCommandValidator(_ruleSetOptionsMock.Object,_fileSystem.Object).TestValidate(model);
             result.ShouldHaveValidationErrorFor(r => r.RuleSet.First().ArgumentValues);
         }

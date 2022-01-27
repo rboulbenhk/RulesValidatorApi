@@ -1,6 +1,7 @@
 global using FluentValidation.AspNetCore;
 global using RulesValidatorApi.Service.v1.PipelineBehaviors;
 using System.IO.Abstractions;
+using FluentValidation;
 
 namespace RulesValidatorApi.Service.v1.SetUp
 {
@@ -13,6 +14,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
                 options.EnableEndpointRouting = false;                
             });
             services.AddFluentValidation(c => c.RegisterValidatorsFromAssemblyContaining<Startup>());
+            ValidatorOptions.Global.CascadeMode = CascadeMode.Stop;
             services.AddSingleton<IPostService,PostService>();
             services.AddAutoMapper(typeof(Startup));
             services.AddMediatR(typeof(Startup));

@@ -15,29 +15,24 @@ namespace RulesValidatorApi.Service.ValidatorsApi
             _ruleSetOptions = ruleSetOptions;
             _fileSystem = fileSystem;
             RuleFor(rule => rule.FilePath)
-            .Cascade(CascadeMode.Stop)
             .NotEmpty()
             .MustAsync(IsFilePathExists).WithMessage("{PropertyName} should contain a valid path for csv file to load");
 
             RuleForEach(rule => rule.RuleSet)
-            .Cascade(CascadeMode.Stop)
             .NotNull()
             .NotEmpty()
             .ChildRules(ruleSet =>
                 {
                     ruleSet.RuleFor(x => x.ColumnId)
-                    .Cascade(CascadeMode.Stop)
                     .GreaterThan(0)
                     .WithMessage("ColumnId {CollectionIndex} must be correct");
                     
                     ruleSet.RuleFor(x => x.RuleName)
-                            .Cascade(CascadeMode.Stop)
                             .NotEmpty()
                             .MustAsync(IsRuleNameValid)
                             .WithMessage("RuleName {CollectionIndex} must be correct");
                     
                     ruleSet.RuleFor(x => x.ArgumentValues)
-                            .Cascade(CascadeMode.Stop)
                             .NotEmpty()
                             .Must(IsRuleNameArgumentsValid)
                             .WithMessage("Arguments {CollectionIndex} must be correct");     
