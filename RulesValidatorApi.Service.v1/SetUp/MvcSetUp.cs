@@ -1,5 +1,6 @@
 global using FluentValidation.AspNetCore;
 global using RulesValidatorApi.Service.v1.PipelineBehaviors;
+using System.IO.Abstractions;
 
 namespace RulesValidatorApi.Service.v1.SetUp
 {
@@ -16,6 +17,7 @@ namespace RulesValidatorApi.Service.v1.SetUp
             services.AddAutoMapper(typeof(Startup));
             services.AddMediatR(typeof(Startup));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddScoped<IFileSystem,FileSystem>();
         }
     }
 }

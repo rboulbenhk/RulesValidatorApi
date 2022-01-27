@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Options;
-using RulesValidatorApi.Service.v1.Rules;
 
 namespace RulesValidatorApi.Service.v1.Services
 {
@@ -28,8 +27,8 @@ namespace RulesValidatorApi.Service.v1.Services
         }
         private List<RuleSetOptions> SetRuleSetFromConfiguration(IOptionsMonitor<List<RuleSetOptions>> ruleSet)
         {
-            var ruleSetValues = ruleSet.CurrentValue;            
-            _logger.LogDebug($"{nameof(RuleSetOptions.SectionName)} retrieved from settings'");
+            var ruleSetValues = ruleSet.CurrentValue;
+            _logger.LogDebug($"{nameof(RuleSetOptions.SectionName)} retrieved from settings : {Utf8Json.JsonSerializer.ToJsonString(ruleSetValues)}'");
             return ruleSetValues;
         }
 

@@ -6,8 +6,8 @@ namespace RulesValidatorApi.Service.v1.Rules
         public string RuleName { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         
-        public List<string> PossibleArgumentValues { get; set; } = new List<string>();
-        public List<string> DefaultValues { get; set; } = new List<string>();
+        public IEnumerable<string> PossibleArgumentValues { get; set; } = Enumerable.Empty<string>();
+        public IEnumerable<string> DefaultValues { get; set; } = Enumerable.Empty<string>();
         public string ArgumentRegex { get; set; } = string.Empty;
         public string ClassName { get; set; } = string.Empty;
     }

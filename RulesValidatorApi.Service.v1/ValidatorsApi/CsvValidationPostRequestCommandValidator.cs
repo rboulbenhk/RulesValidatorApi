@@ -1,4 +1,5 @@
 using System.IO;
+using System.IO.Abstractions;
 using FluentValidation;
 using Microsoft.Extensions.Options;
 
@@ -7,15 +8,15 @@ namespace RulesValidatorApi.Service.ValidatorsApi
     public class CsvValidationPostRequestCommandValidator : AbstractValidator<CsvValidationPostRequestCommand>
     {
         private readonly IOptionsMonitor<IEnumerable<RuleSetOptions>> _ruleSetOptions;
+        private readonly IFileSystem _fileSystem;
 
-        public CsvValidationPostRequestCommandValidator(IOptionsMonitor<IEnumerable<RuleSetOptions>> ruleSetOptions)
+        public CsvValidationPostRequestCommandValidator(IOptionsMonitor<IEnumerable<RuleSetOptions>> ruleSetOptions, IFileSystem fileSystem)
         {
             _ruleSetOptions = ruleSetOptions;
-            
+            _fileSystem = fileSystem;
             RuleFor(rule => rule.FilePath)
             .Cascade(CascadeMode.Stop)
             .NotEmpty()
-            .Matches("*.csv").WithMessage("{PropertyName} should contain a path with a csv file extension")
             .MustAsync(IsFilePathExists).WithMessage("{PropertyName} should contain a valid path for csv file to load");
 
             RuleForEach(rule => rule.RuleSet)
@@ -45,7 +46,7 @@ namespace RulesValidatorApi.Service.ValidatorsApi
 
         private async Task<bool> IsFilePathExists(CsvValidationPostRequestCommand request, string filePath, CancellationToken cancellation = new CancellationToken())
         {
-            return await Task.FromResult(File.Exists(filePath));
+            return await Task.FromResult(_fileSystem.File.Exists(filePath));
         } 
 
         private async Task<bool> IsRuleNameValid(string ruleName, CancellationToken cancellation = new CancellationToken())
