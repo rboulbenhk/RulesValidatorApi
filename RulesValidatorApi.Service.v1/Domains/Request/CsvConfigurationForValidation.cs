@@ -1,3 +1,4 @@
+
 namespace RulesValidatorApi.Service.Domains.Request
 {
     public class CsvConfigurationForValidation

@@ -9,9 +9,8 @@ global using RulesValidatorApi.Service.v1.Queries;
 
 namespace RulesValidatorApi.Service.Controllers.V1
 {
-    [ApiController]    
     [Produces("application/json")]
-    public class PostCsvController : ControllerBase
+    public class PostCsvController : ApplicationController
     {
         private readonly ILogger<PostCsvController> _logger;
         private readonly IMapper _mapper;
@@ -46,7 +45,7 @@ namespace RulesValidatorApi.Service.Controllers.V1
         [HttpPost(ApiRoutes.PostCvsController.ValidateAsync)]
         [ProducesResponseType(typeof(CsvValidationPostErrorResponse), StatusCodes.Status200OK)]        
         [ProducesResponseType(typeof(Exception), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> ValidateAsync([FromBody] CsvValidationPostRequest csvValidationPostRequest)
+        public async Task<IActionResult> ValidateAsync(CsvValidationPostRequest csvValidationPostRequest)
         {
             try
             {

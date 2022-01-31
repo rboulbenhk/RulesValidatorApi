@@ -6,7 +6,7 @@ namespace RulesValidatorApi.Service.v1.Services
     {
         private readonly IOptionsMonitor<List<RuleSetOptions>> _ruleSet;
         private readonly IOptionsMonitor<MaxNumberOfResponseOptions> _maxNumberOfResponseOptions;
-        private readonly ILogger<PostService> _logger;
+        private readonly ILogger<PostService> _logger = default!;
         private int? _maxNumberOfErrorsToReturn;
         
         
@@ -14,8 +14,8 @@ namespace RulesValidatorApi.Service.v1.Services
         IOptionsMonitor<MaxNumberOfResponseOptions> maxNumberOfResponseOptions, 
         ILogger<PostService> logger)
         {
-            _ruleSet = ruleSet;
-            _logger = logger;
+            _ruleSet = ruleSet!;
+            _logger = logger!;
             _maxNumberOfErrorsToReturn = SetMaxNumberOfErrorsFromConfiguration(maxNumberOfResponseOptions);
         }
 
