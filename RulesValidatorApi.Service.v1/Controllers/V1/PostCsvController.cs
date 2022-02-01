@@ -6,6 +6,8 @@ global using Microsoft.Extensions.Logging;
 global using RulesValidatorApi.Service.Contracts.V1;
 global using RulesValidatorApi.Service.v1.Commands;
 global using RulesValidatorApi.Service.v1.Queries;
+using RulesValidatorApi.Service.v1.Helper;
+using RulesValidatorApi.Service.v1.Logger;
 
 namespace RulesValidatorApi.Service.Controllers.V1
 {
@@ -32,8 +34,10 @@ namespace RulesValidatorApi.Service.Controllers.V1
         [HttpGet(ApiRoutes.PostCvsController.GetAllRulesAsync)]
         public async Task<IActionResult> GetAllRulesAsync()
         {
+            _logger.StartGetAllRulesAsync();
             var query = new GetAllCsvRulesQuery();
             var result = await _mediator.Send(query);
+            _logger.EndGetAllRulesAsync();
             return Ok(result);
         }
 
@@ -47,6 +51,7 @@ namespace RulesValidatorApi.Service.Controllers.V1
         [ProducesResponseType(typeof(Exception), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> ValidateAsync(CsvValidationPostRequest csvValidationPostRequest)
         {
+            _logger.StartValidateAsync();
             try
             {
                 var csvValidationPostRequestCommand = _mapper.Map<CsvValidationPostRequestCommand>(csvValidationPostRequest);
@@ -59,8 +64,12 @@ namespace RulesValidatorApi.Service.Controllers.V1
             }
             catch (Exception ex)
             {
-                _logger.LogCritical($"Exception occured while validating the CSV file {csvValidationPostRequest.FilePath} with the Configuration {(null)} : {ex}");
+                _logger.ExceptionValidateAsync(ex, csvValidationPostRequest.FilePath, csvValidationPostRequest.RuleSet.PostRuleSetRequestLogMessage());
                 return StatusCode(StatusCodes.Status500InternalServerError, "A problem occured while handling your request.");
+            }
+            finally
+            {
+                _logger.EndValidateAsync();
             }
         }
     }

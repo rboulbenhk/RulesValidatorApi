@@ -1,4 +1,5 @@
 using FluentValidation;
+using RulesValidatorApi.Service.v1.Logger;
 
 namespace RulesValidatorApi.Service.v1.PipelineBehaviors
 {
@@ -24,7 +25,7 @@ namespace RulesValidatorApi.Service.v1.PipelineBehaviors
             {
                 var messages = result.Errors.Select(s => s.ErrorMessage);
                 var errorMessage = string.Join(",\n",messages);
-                _logger.LogError($"Error during validation : {errorMessage}");
+                _logger.ValidationError(errorMessage);
 
                 var responseType = typeof(TResponse);
 
@@ -38,7 +39,7 @@ namespace RulesValidatorApi.Service.v1.PipelineBehaviors
 
                     if(invalidResponse == null)
                     {
-                        _logger.LogError($"Unable to return an invalid response for : {errorMessage}");
+                        _logger.UnableToReturnValidResponse(errorMessage);
                     }
 
                     return invalidResponse!;

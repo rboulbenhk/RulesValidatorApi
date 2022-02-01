@@ -6,7 +6,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+    <NoWarn>$(NoWarn);1591;SYSLIB1006</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <None Include="nlog.config">

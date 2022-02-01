@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Options;
+using RulesValidatorApi.Service.v1.Logger;
 
 namespace RulesValidatorApi.Service.v1.Services
 {
@@ -8,7 +9,6 @@ namespace RulesValidatorApi.Service.v1.Services
         private readonly IOptionsMonitor<MaxNumberOfResponseOptions> _maxNumberOfResponseOptions;
         private readonly ILogger<PostService> _logger = default!;
         private int? _maxNumberOfErrorsToReturn;
-        
         
         public PostService(IOptionsMonitor<List<RuleSetOptions>> ruleSet,
         IOptionsMonitor<MaxNumberOfResponseOptions> maxNumberOfResponseOptions, 
@@ -22,23 +22,27 @@ namespace RulesValidatorApi.Service.v1.Services
         private int? SetMaxNumberOfErrorsFromConfiguration(IOptionsMonitor<MaxNumberOfResponseOptions> maxNumberOfResponseOptions)
         {
             var innerMaxNumberOfResponse = maxNumberOfResponseOptions.CurrentValue.Value;
-            _logger.LogDebug($"{nameof(MaxNumberOfResponseOptions.SectionName)} retrieved from settings = '{innerMaxNumberOfResponse}'");
+            _logger.MaxNumberOfResponse(innerMaxNumberOfResponse);
             return innerMaxNumberOfResponse;
         }
         private List<RuleSetOptions> SetRuleSetFromConfiguration(IOptionsMonitor<List<RuleSetOptions>> ruleSet)
         {
             var ruleSetValues = ruleSet.CurrentValue;
-            _logger.LogDebug($"{nameof(RuleSetOptions.SectionName)} retrieved from settings : {Utf8Json.JsonSerializer.ToJsonString(ruleSetValues)}'");
+            _logger.RuleSetValues(Utf8Json.JsonSerializer.ToJsonString(ruleSetValues));
             return ruleSetValues;
         }
 
         public async Task<IEnumerable<CsvValidationErrorResponse>> PostValidateAsync(CsvConfigurationForValidation csvConfigurationForValidation)
         {
+            _logger.StartPostValidateAsync();
+            using var _ = _logger.DebugTimedOperation(nameof(PostValidateAsync));
             //TODO Retrieve the file
             //TODO Parse the file
             //TODO Apply the rules validation
             //TODO Stop when you have the max validation defined reached
+            var innerMax = _maxNumberOfResponseOptions;
 
+            _logger.EndPostValidateAsync();
             return await Task.FromResult(Enumerable.Empty<CsvValidationErrorResponse>());
         }
 
