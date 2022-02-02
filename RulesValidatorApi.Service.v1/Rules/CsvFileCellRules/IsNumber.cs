@@ -1,15 +1,13 @@
-namespace RulesValidatorApi.Service.Rules.CsvFileCellRules
+namespace RulesValidatorApi.Service.Rules.CsvFileCellRules;
+public class IsNumber : IRulesValidator
 {
-    public class IsNumber : IRulesValidator
+    public string GetErrorMessage()
     {
-        public string GetErrorMessage()
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
+    }
 
-        public bool IsValid()
-        {
-            throw new NotImplementedException();
-        }
+    public bool IsValid()
+    {
+        throw new NotImplementedException();
     }
 }

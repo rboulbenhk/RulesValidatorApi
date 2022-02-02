@@ -1,29 +1,24 @@
-using System.IO;
-using System.IO.Abstractions;
-using FluentValidation;
-using Microsoft.Extensions.Options;
-using RulesValidatorApi.Service.v1.ValidatorsApi;
 
-namespace RulesValidatorApi.Service.ValidatorsApi
+
+namespace RulesValidatorApi.Service.ValidatorsApi;
+
+public class CsvValidationPostRequestCommandValidator : AbstractValidator<CsvValidationPostRequestCommand>
 {
-    public class CsvValidationPostRequestCommandValidator : AbstractValidator<CsvValidationPostRequestCommand>
+    private readonly IOptionsMonitor<IEnumerable<RuleSetOptions>> _ruleSetOptions;
+    private readonly IFileSystem _fileSystem;
+
+    public CsvValidationPostRequestCommandValidator(IOptionsMonitor<IEnumerable<RuleSetOptions>> ruleSetOptions, IFileSystem fileSystem)
     {
-        private readonly IOptionsMonitor<IEnumerable<RuleSetOptions>> _ruleSetOptions;
-        private readonly IFileSystem _fileSystem;
+        CascadeMode = CascadeMode.Stop;
+        _ruleSetOptions = ruleSetOptions;
+        _fileSystem = fileSystem;
 
-        public CsvValidationPostRequestCommandValidator(IOptionsMonitor<IEnumerable<RuleSetOptions>> ruleSetOptions, IFileSystem fileSystem)
-        {
-            CascadeMode = CascadeMode.Stop;
-            _ruleSetOptions = ruleSetOptions;
-            _fileSystem = fileSystem;
-            
-            RuleFor(rule => rule.FilePath)
-            .NotEmpty()
-            .FilePathValidator(_fileSystem);
+        RuleFor(rule => rule.FilePath)
+        .NotEmpty()
+        .FilePathValidator(_fileSystem);
 
-            RuleFor(rule => rule.RuleSet)
-            .NotNull()
-            .SetValidator(new PostRuleSetRequestsValidator(_ruleSetOptions.CurrentValue));
-        }
+        RuleFor(rule => rule.RuleSet)
+        .NotNull()
+        .SetValidator(new PostRuleSetRequestsValidator(_ruleSetOptions.CurrentValue));
     }
 }

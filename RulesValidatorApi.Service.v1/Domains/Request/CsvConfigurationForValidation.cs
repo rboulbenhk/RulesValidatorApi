@@ -1,9 +1,7 @@
+namespace RulesValidatorApi.Service.Domains.Request;
 
-namespace RulesValidatorApi.Service.Domains.Request
+public class CsvConfigurationForValidation
 {
-    public class CsvConfigurationForValidation
-    {
-        public string FilePath { get; set; } = string.Empty;
-        public IEnumerable<RuleSet> RuleSet { get; set; } = new List<RuleSet>();
-    }
+    public string FilePath { get; set; } = string.Empty;
+    public IEnumerable<RuleSet> RuleSet { get; set; } = new List<RuleSet>();
 }

@@ -1,8 +1,6 @@
-namespace RulesValidatorApi.Service.Rules
+namespace RulesValidatorApi.Service.Rules;
+public interface IRulesValidator
 {
-    public interface IRulesValidator
-    {
-        bool IsValid();
-        string GetErrorMessage();
-    }
-} 
+    bool IsValid();
+    string GetErrorMessage();
+}

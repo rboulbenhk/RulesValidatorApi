@@ -1,54 +1,50 @@
-using FluentValidation;
-using RulesValidatorApi.Service.v1.Logger;
 
-namespace RulesValidatorApi.Service.v1.PipelineBehaviors
-{
 
-    public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+namespace RulesValidatorApi.Service.v1.PipelineBehaviors;
+public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>, IValidateable
     where TResponse : class
+{
+    private readonly IValidator<TRequest> _compositeValidator;
+    private readonly ILogger<TRequest> _logger;
+
+    public ValidationBehavior(IValidator<TRequest> compositeValidator, ILogger<TRequest> logger)
     {
-        private readonly IValidator<TRequest> _compositeValidator;
-        private readonly ILogger<TRequest> _logger;
+        _compositeValidator = compositeValidator;
+        _logger = logger;
+    }
 
-        public ValidationBehavior(IValidator<TRequest> compositeValidator, ILogger<TRequest> logger)
+    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+    {
+        var result = await _compositeValidator.ValidateAsync(request, cancellationToken);
+
+        if (!result.IsValid)
         {
-            _compositeValidator = compositeValidator;
-            _logger = logger;
-        }
+            var messages = result.Errors.Select(s => s.ErrorMessage);
+            var errorMessage = string.Join(",\n", messages);
+            _logger.ValidationError(errorMessage);
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
-        {
-            var result = await _compositeValidator.ValidateAsync(request, cancellationToken);
+            var responseType = typeof(TResponse);
 
-            if (!result.IsValid)
+            if (responseType.IsGenericType)
             {
-                var messages = result.Errors.Select(s => s.ErrorMessage);
-                var errorMessage = string.Join(",\n",messages);
-                _logger.ValidationError(errorMessage);
+                var resultType = responseType.GetGenericArguments()[0];
+                var invalidResponseType = typeof(ValidateableResponse<>).MakeGenericType(resultType);
 
-                var responseType = typeof(TResponse);
+                var invalidResponse =
+                    Activator.CreateInstance(invalidResponseType, null, messages.ToList()) as TResponse;
 
-                if (responseType.IsGenericType)
+                if (invalidResponse == null)
                 {
-                    var resultType = responseType.GetGenericArguments()[0];
-                    var invalidResponseType = typeof(ValidateableResponse<>).MakeGenericType(resultType);
-
-                    var invalidResponse =
-                        Activator.CreateInstance(invalidResponseType, null, messages.ToList()) as TResponse;
-
-                    if(invalidResponse == null)
-                    {
-                        _logger.UnableToReturnValidResponse(errorMessage);
-                    }
-
-                    return invalidResponse!;
+                    _logger.UnableToReturnValidResponse(errorMessage);
                 }
+
+                return invalidResponse!;
             }
-
-            var response = await next();
-
-            return response;
         }
+
+        var response = await next();
+
+        return response;
     }
 }

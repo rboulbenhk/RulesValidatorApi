@@ -1,12 +1,9 @@
-using RulesValidatorApi.Service.Domains.Response;
-namespace RulesValidatorApi.Service.MappingProfiles
+namespace RulesValidatorApi.Service.MappingProfiles;
+public class DomainsToResponseProfile : Profile
 {
-    public class DomainsToResponseProfile : Profile
+    public DomainsToResponseProfile()
     {
-        public DomainsToResponseProfile()
-        {
-            CreateMap<CsvValidationErrorResponse, CsvValidationPostErrorResponse>();
-            CreateMap<CsvRulesResponse, GetAllCsvRulesResponse>();
-        }
+        CreateMap<CsvValidationErrorResponse, CsvValidationPostErrorResponse>();
+        CreateMap<CsvRulesResponse, GetAllCsvRulesResponse>();
     }
 }

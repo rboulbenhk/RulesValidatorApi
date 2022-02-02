@@ -1,15 +1,13 @@
-namespace RulesValidatorApi.Service.Rules.CsvFileCellRules
+namespace RulesValidatorApi.Service.Rules.CsvFileCellRules;
+public class IsNumberInSpecificRange : IRulesValidator
 {
-    public class IsNumberInSpecificRange : IRulesValidator
+    public string GetErrorMessage()
     {
-        public string GetErrorMessage()
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
+    }
 
-        public bool IsValid()
-        {
-            throw new NotImplementedException();
-        }
+    public bool IsValid()
+    {
+        throw new NotImplementedException();
     }
 }

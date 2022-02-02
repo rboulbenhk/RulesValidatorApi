@@ -1,7 +1,4 @@
-global using System;
-global using Microsoft.AspNetCore;
-global using Microsoft.AspNetCore.Hosting;
-global using NLog.Web;
+
 
 
 public class Program

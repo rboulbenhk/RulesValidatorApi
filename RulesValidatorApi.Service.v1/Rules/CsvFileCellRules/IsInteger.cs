@@ -1,16 +1,14 @@
 
-namespace RulesValidatorApi.Service.Rules.CsvFile
+namespace RulesValidatorApi.Service.Rules.CsvFile;
+public class IsEmpty : IRulesValidator
 {
-    public class IsInteger : IRulesValidator
+    public string GetErrorMessage()
     {
-        public string GetErrorMessage()
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
+    }
 
-        public bool IsValid()
-        {
-            throw new NotImplementedException();
-        }
+    public bool IsValid()
+    {
+        throw new NotImplementedException();
     }
 }

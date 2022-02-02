@@ -1,45 +1,43 @@
-using System.IO;
 
-namespace RulesValidatorApi.Service.Parser
+
+namespace RulesValidatorApi.Service.Parser;
+public class CsvParser : IDisposable
 {
-    public class CsvParser : IDisposable
+    private readonly StreamReader _streamReader;
+    private readonly string[] _header;
+
+    public CsvParser(Stream stream) : this(new StreamReader(stream))
     {
-        private readonly StreamReader _streamReader;
-        private readonly string[] _header;
 
-        public CsvParser(Stream stream):this(new StreamReader(stream))
+    }
+    public CsvParser(StreamReader streamReader)
+    {
+        _streamReader = streamReader;
+        _header = ReadHeader();
+        if (_header.Length == 0 || _header.Any(string.IsNullOrWhiteSpace))
         {
-
+            throw new ParsingException("No header found in the file");
         }
-        public CsvParser(StreamReader streamReader)
+    }
+
+    public IAsyncEnumerable<CsvRow> Read()
+    {
+        async IAsyncEnumerable<CsvRow> InnerRead()
         {
-            _streamReader = streamReader;
-            _header = ReadHeader();
-            if(_header.Length == 0 || _header.Any(string.IsNullOrWhiteSpace))
+            var rowNumber = 1;
+            while (!_streamReader.EndOfStream)
             {
-                throw new ParsingException("No header found in the file");
+                string? line = await _streamReader.ReadLineAsync();
+                yield return new CsvRow(_header, line ?? string.Empty, ++rowNumber);
             }
         }
+        return InnerRead();
+    }
 
-        public IAsyncEnumerable<CsvRow> Read()
-        {
-            async IAsyncEnumerable<CsvRow> InnerRead()
-            {
-                var rowNumber = 1;
-                while(!_streamReader.EndOfStream)
-                {
-                    string? line = await _streamReader.ReadLineAsync();
-                    yield return new CsvRow(_header, line ?? string.Empty, ++rowNumber);
-                }
-            }
-            return InnerRead();
-        }
+    private string[] ReadHeader() => _streamReader.ReadLine()?.Split() ?? Array.Empty<string>();
 
-        private string[] ReadHeader() => _streamReader.ReadLine()?.Split() ?? Array.Empty<string>();
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+    public void Dispose()
+    {
+        throw new NotImplementedException();
     }
 }

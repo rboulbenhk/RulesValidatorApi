@@ -1,4 +1,4 @@
-using System.Diagnostics;
+
 
 namespace RulesValidatorApi.Service.v1.Logger;
 
