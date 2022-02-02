@@ -3,23 +3,38 @@ using FluentValidation;
 
 namespace RulesValidatorApi.Service.v1.ValidatorsApi
 {
+    public class PostRuleSetRequestsValidator : AbstractValidator<IEnumerable<PostRuleSetRequest?>>
+    {
+        public PostRuleSetRequestsValidator(IEnumerable<RuleSetOptions> ruleSetOptions)
+       {
+           RuleForEach(ruleSetRequest => ruleSetRequest)
+               .SetValidator(new PostRuleSetRequestValidator(ruleSetOptions));
+       }
+    }
+
     public class PostRuleSetRequestValidator : AbstractValidator<PostRuleSetRequest>
     {
         public PostRuleSetRequestValidator(IEnumerable<RuleSetOptions> ruleSetOptions)
         {
             CascadeMode = CascadeMode.Stop;
-            RuleFor(x => x).Custom((ruleSetRequest,context) => 
+            RuleFor(x => x)
+            .NotNull()
+            .Custom((ruleSetRequest,context) => 
             {
                 if(ruleSetRequest.ColumnId < 1)
                 {
                     context.AddFailure(Errors.InvalidColumnId(ruleSetRequest.ColumnId));
                     return;
                 }
-
-                var ruleSet = ruleSetOptions.FirstOrDefault(r => string.Equals(r.ClassName,ruleSetRequest.RuleName,System.StringComparison.Ordinal));
+                var ruleSet = ruleSetOptions.FirstOrDefault(r => string.Equals(r.RuleName,ruleSetRequest.RuleName,System.StringComparison.Ordinal));
                 if(ruleSet == null)
                 {
                     context.AddFailure(Errors.InvalidRuleName(ruleSetRequest.RuleName));
+                    return;
+                }
+                if(string.IsNullOrWhiteSpace(ruleSet.ArgumentRegex) && ruleSetRequest.ArgumentValues.Any())
+                {
+                    context.AddFailure(Errors.RuleSetHasNoArgument(ruleSetRequest.RuleName,ruleSetRequest.ArgumentValues));
                     return;
                 }
                 if(!string.IsNullOrWhiteSpace(ruleSet?.ArgumentRegex))
@@ -38,7 +53,7 @@ namespace RulesValidatorApi.Service.v1.ValidatorsApi
 
             static IEnumerable<ErrorValidation> AreRuleSetArgumentsValid(IEnumerable<string> argumentsToValidate, string ruleName, Regex regex, IEnumerable<string> possibleArgumentValues)
             {
-                if(argumentsToValidate.Any())
+                if(!argumentsToValidate.Any())
                 {
                     yield return Errors.MissingArguments(ruleName,possibleArgumentValues);
                 }

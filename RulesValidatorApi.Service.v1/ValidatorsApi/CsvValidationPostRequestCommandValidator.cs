@@ -21,7 +21,9 @@ namespace RulesValidatorApi.Service.ValidatorsApi
             .NotEmpty()
             .FilePathValidator(_fileSystem);
 
-            RuleForEach(rule => rule.RuleSet).SetValidator(new PostRuleSetRequestValidator(_ruleSetOptions.CurrentValue));
+            RuleFor(rule => rule.RuleSet)
+            .NotNull()
+            .SetValidator(new PostRuleSetRequestsValidator(_ruleSetOptions.CurrentValue));
         }
     }
 }

@@ -11,5 +11,7 @@ namespace RulesValidatorApi.Service.v1.ValidatorsApi
         public static ErrorValidation InvalidRuleName(string ruleName) => new ErrorValidation("postRuleSetRequest.ruleName", $"'{ruleName}' doesn't exist");
         public static ErrorValidation MissingArguments(string ruleName,IEnumerable<string> possibleArgumentValues) => new ErrorValidation("postRuleSetRequest.argumentValues", $"'{ruleName}' must have some arguments e.g. '{string.Join(", ",possibleArgumentValues)}'");
         public static ErrorValidation BadRuleSetArguments(string argumentValue, string ruleName, IEnumerable<string> possibleArgumentValues) => new ErrorValidation("postRuleSetRequest.argumentValues", $"'{argumentValue}' is not valid for the rule='{ruleName}'. You can use '{string.Join(", ",possibleArgumentValues)}'");
+
+        public static ErrorValidation RuleSetHasNoArgument(string ruleName, IEnumerable<string> argumentValues) => new ErrorValidation("postRuleSetRequest.argumentValues", $"'{ruleName}' must not have argument values. '{string.Join(", ",argumentValues)}'");
     }
 }
