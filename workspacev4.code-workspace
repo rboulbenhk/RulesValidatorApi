@@ -1,0 +1,48 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../TodoApi"
+		},
+		{
+			"path": "../ValidationInDDD-6ed811c3aa9e44f3e9a4b4672f52acdc412c18fa"
+		},
+		{
+			"path": "../GuideDemoApp"
+		},
+		{
+			"path": "../NorthwindTraders-master"
+		},
+		{
+			"path": "../CleanArchitecture-main"
+		},
+		{
+			"path": "../raw-coding-101-tutorials-main"
+		}
+	],
+	"settings": {
+		"dotnet-test-explorer.testProjectPath": "../RulesValidatorApi/tests/**/*Tests*",
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#52c190",
+			"activityBar.activeBorder": "#965bc4",
+			"activityBar.background": "#52c190",
+			"activityBar.foreground": "#15202b",
+			"activityBar.inactiveForeground": "#15202b99",
+			"activityBarBadge.background": "#965bc4",
+			"activityBarBadge.foreground": "#e7e7e7",
+			"sash.hoverBorder": "#52c190",
+			"statusBar.background": "#3ba576",
+			"statusBar.foreground": "#e7e7e7",
+			"statusBarItem.hoverBackground": "#52c190",
+			"statusBarItem.remoteBackground": "#3ba576",
+			"statusBarItem.remoteForeground": "#e7e7e7",
+			"titleBar.activeBackground": "#3ba576",
+			"titleBar.activeForeground": "#e7e7e7",
+			"titleBar.inactiveBackground": "#3ba57699",
+			"titleBar.inactiveForeground": "#e7e7e799"
+		},
+		"peacock.color": "#3ba576"
+	}
+}
