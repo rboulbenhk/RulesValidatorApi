@@ -13,6 +13,7 @@ public class SwaggerSetUp : ISetUp
             });
             var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
             s.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+            s.EnableAnnotations();
             s.ExampleFilters();
         });
         services.AddSwaggerExamplesFromAssemblyOf<Startup>();
